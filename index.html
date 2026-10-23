@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Además del pan">
+<meta property="og:description" content="Lo que armé para el SAB, el CMG, Tognoli y Sencia, y lo propio: Mar de Pan y La Domarca">
+<meta property="og:url" content="https://martinlleral.github.io/ademas-del-pan/">
+<meta property="og:image" content="https://martinlleral.github.io/ademas-del-pan/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portada de «Además del pan», de Martín Lleral">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141613" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%232747A8'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Además del pan</title>
+<meta name="description" content="Lo que armé para el SAB, el CMG, Tognoli y Sencia, y lo propio: Mar de Pan y La Domarca">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@1,600&text=del%20pan&display=swap">
+<style>
+/* Layout: cuaderno de campo. Una hoja de 1120 px; arriba el mapa que conecta todo, después un tramo por proyecto: la pantalla grabada, una frase con el resultado y una línea de contexto. El resto, en desplegables cerrados */
+:root {
+  --papel: #F6F5F0;
+  --papel-2: #ECEAE2;
+  --tinta: #1B1D1A;
+  --gris: #5A5F57;
+  --linea: #D6D3C8;
+  --linea-2: #B9B5A8;
+  --birome: #2747A8;
+  --birome-suave: #E1E6F4;
+  --c-mdp: #C04816;
+  --c-sab: #D12E3B;
+  --c-cmg: #2F6FB0;
+  --c-tog: #3B6B52;
+  --c-sen: #8C1B3A;
+  --c-dom: #367A52;
+  --alerta: #B0532F;
+  --f-texto: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel: #141613; --papel-2: #1D201C; --tinta: #ECEAE3; --gris: #A6AAA0;
+    --linea: #343830; --linea-2: #4C5147; --birome: #97ABF3; --birome-suave: #20283F;
+    --c-mdp: #E5784A; --c-sab: #F0606B; --c-cmg: #74A8DE; --c-tog: #72B291; --c-sen: #DB6A8A; --c-dom: #72B892; --alerta: #E58A66;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papel: #141613; --papel-2: #1D201C; --tinta: #ECEAE3; --gris: #A6AAA0;
+  --linea: #343830; --linea-2: #4C5147; --birome: #97ABF3; --birome-suave: #20283F;
+  --c-mdp: #E5784A; --c-sab: #F0606B; --c-cmg: #74A8DE; --c-tog: #72B291; --c-sen: #DB6A8A; --c-dom: #72B892; --alerta: #E58A66;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--f-texto);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.hoja { max-width: 1120px; margin-inline: auto; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { text-wrap: pretty; margin: 0; }
+a { color: var(--birome); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--birome); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--f-mono); }
+.nw { white-space: nowrap; }
+
+/* —— Portada —— */
+.portada { padding-block: clamp(48px, 9vw, 104px) clamp(32px, 5vw, 56px); display: grid; gap: 28px; }
+.sello { font-family: var(--f-mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
+.portada h1 { font-size: clamp(3rem, 9vw, 6.4rem); line-height: .95; font-weight: 800; letter-spacing: -.035em; }
+.portada h1 em { font-style: italic; font-weight: 600; color: var(--birome); }
+.bajada-grande { font-size: clamp(1.15rem, 2.1vw, 1.4rem); line-height: 1.5; max-width: 36em; text-wrap: balance; }
+.indice { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 4px 0 0; list-style: none; }
+.indice a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px;
+  border: 1px solid var(--linea); border-radius: 999px; color: var(--tinta); text-decoration: none; font-size: 15px;
+  background: var(--papel);
+}
+.indice a:hover { border-color: var(--linea-2); }
+.punto { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--gris)); flex: none; }
+
+/* —— El mapa —— */
+.mapa { border-top: 1px solid var(--linea); padding-block: clamp(40px, 6vw, 72px); display: grid; gap: 14px; }
+.titulo-seccion { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 750; letter-spacing: -.02em; line-height: 1.1; }
+.mapa > p { max-width: 42em; color: var(--gris); }
+.red {
+  position: relative; margin-top: 28px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .82fr) minmax(0, 1fr);
+  column-gap: clamp(56px, 8vw, 120px); align-items: center;
+}
+.red-hilos { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 0; }
+.red-hilos path { fill: none; stroke: var(--linea-2); stroke-width: 1.5; }
+.red-hilos path.punteado { stroke-dasharray: 4 5; }
+.red-hilos circle { fill: var(--linea-2); }
+.red-hilos text {
+  font-family: var(--f-mono); font-size: 12px; fill: var(--gris);
+  paint-order: stroke; stroke: var(--papel); stroke-width: 7px; stroke-linejoin: round;
+}
+.red-col { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 52px; }
+.red-col--orgs { gap: 16px; }
+.red-tit { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); margin-bottom: -36px; }
+.red-col--orgs .red-tit { margin-bottom: 0; }
+/* En el celular los hilos del SVG no entran: los reemplazan estos rótulos, que en la compu no se ven */
+.red-rotulo, .red-paso { display: none; }
+.nodo {
+  position: relative; display: grid; gap: 2px; padding: 14px 16px 14px 34px;
+  background: var(--papel); border: 1px solid var(--linea); border-radius: 10px;
+  color: var(--tinta); text-decoration: none; transition: border-color .15s;
+}
+a.nodo:hover { border-color: var(--c, var(--linea-2)); }
+.nodo::before { content: ""; position: absolute; left: 15px; top: 21px; width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--gris)); }
+.nodo-tipo { font-family: var(--f-mono); font-size: 12px; color: var(--gris); line-height: 1.4; }
+.nodo-nombre { font-weight: 700; font-size: 17px; line-height: 1.25; }
+.nodo-piezas { font-size: 14px; color: var(--gris); line-height: 1.4; }
+.nodo--hub { background: var(--tinta); border-color: var(--tinta); color: var(--papel); padding: 22px 22px 22px 40px; }
+.nodo--hub::before { background: var(--papel); left: 20px; top: 31px; }
+.nodo--hub .nodo-nombre { font-size: 26px; letter-spacing: .02em; }
+.nodo--hub .nodo-tipo, .nodo--hub .nodo-piezas { color: var(--papel); opacity: .82; }
+
+/* —— Cada caso —— */
+.caso { border-top: 1px solid var(--linea); padding-block: clamp(44px, 7vw, 84px); display: grid; gap: 28px; scroll-margin-top: 12px; }
+.caso-cab { display: grid; gap: 8px; }
+.eyebrow { display: flex; align-items: flex-start; gap: 10px; font-family: var(--f-mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--gris); }
+.eyebrow .punto { margin-top: 5.5px; }
+.caso h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.02; }
+.caso-cuerpo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
+.caso--espejo .caso-cuerpo { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.caso--espejo .caso-cuerpo > figure, .caso--espejo .caso-cuerpo > .lamina { order: 2; }
+.relato { display: grid; gap: 14px; }
+.logro { font-size: clamp(1.4rem, 2.7vw, 1.85rem); font-weight: 750; letter-spacing: -.02em; line-height: 1.18; text-wrap: balance; }
+.contexto { color: var(--gris); }
+.tramo { display: grid; gap: 6px; }
+.tramo h3 { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+.enlaces { display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 16px; }
+.enlaces a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+
+/* «Para quien quiera»: desplegables cerrados */
+.mas { border-top: 1px dashed var(--linea-2); }
+.mas > summary {
+  list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
+  min-height: 48px; padding-block: 10px; font-size: 16px; font-weight: 600; color: var(--tinta);
+}
+.mas > summary::-webkit-details-marker { display: none; }
+.mas > summary::before {
+  content: ""; width: 7px; height: 7px; margin-inline: 3px 0;
+  border-right: 2px solid var(--c, var(--gris)); border-bottom: 2px solid var(--c, var(--gris));
+  transform: rotate(-45deg); transition: transform .2s;
+}
+.mas[open] > summary::before { transform: rotate(45deg); }
+.mas > summary:hover { color: var(--birome); }
+.mas > summary small { font-family: var(--f-mono); font-size: 12px; font-weight: 400; letter-spacing: .04em; color: var(--gris); }
+.mas-cuerpo { display: grid; gap: 18px; padding: 4px 0 12px; }
+.mas--ancho .mas-cuerpo { gap: 26px; padding-top: 10px; }
+
+/* La pantalla: un navegador mínimo, con la dirección real arriba */
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.pantalla { border: 1px solid var(--linea); border-radius: 12px; overflow: hidden; background: var(--papel-2); }
+.pantalla-barra { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--linea); font-family: var(--f-mono); font-size: 12.5px; color: var(--gris); min-width: 0; }
+.pantalla-barra span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pantalla-barra svg { flex: none; }
+.pantalla-video { position: relative; }
+.pantalla-video video { display: block; width: 100%; height: auto; aspect-ratio: 1120 / 700; background: var(--papel-2); }
+.pausa, .agrandar {
+  position: absolute; bottom: 10px; width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; border: 0; cursor: pointer;
+  background: rgba(20, 22, 19, .72); color: #fff;
+}
+.pausa { left: 10px; }
+.quieto .pausa { left: 50%; bottom: 50%; transform: translate(-50%, 50%); width: 72px; height: 72px; background: rgba(20, 22, 19, .86); box-shadow: 0 0 0 2px rgba(255, 255, 255, .85); }
+.quieto .pausa svg { width: 26px; height: 26px; }
+.agrandar { right: 10px; }
+.pausa:hover, .agrandar:hover { background: rgba(20, 22, 19, .88); }
+.pausa .i-play { display: none; }
+.pausa[data-estado="pausa"] .i-play { display: block; }
+.pausa[data-estado="pausa"] .i-pausa { display: none; }
+figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
+
+/* Mar de Pan: el panel del equipo, en tres celulares */
+.celulares { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.celulares img { width: 100%; height: auto; display: block; border: 1px solid var(--linea); border-radius: 14px; }
+
+/* Tognoli: el catálogo en puntos */
+.lamina { border: 1px solid var(--linea); border-radius: 12px; background: var(--papel-2); padding: clamp(14px, 2.4vw, 24px); display: grid; gap: 16px; }
+.lamina-cab { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.cuenta { display: grid; gap: 0; }
+.cuenta strong { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.cuenta span { font-size: 14px; color: var(--gris); }
+.conmutador { display: inline-flex; border: 1px solid var(--linea-2); border-radius: 999px; padding: 3px; background: var(--papel); }
+.conmutador button {
+  font: inherit; font-size: 14.5px; min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--tinta); cursor: pointer;
+}
+.conmutador button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+.puntos { display: grid; grid-template-columns: repeat(55, minmax(0, 1fr)); gap: clamp(1px, .35vw, 3px); }
+.puntos span { aspect-ratio: 1; border-radius: 50%; background: var(--c-tog); }
+.puntos span.n { transition: background-color .35s ease; transition-delay: calc(var(--i) * 7ms); }
+.puntos[data-estado="antes"] span.n { background: var(--linea-2); opacity: .55; transition-delay: 0ms; }
+.puntos[data-estado="despues"] span.n { background: var(--birome); }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; color: var(--gris); }
+.leyenda i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+
+/* Herramientas */
+.herramientas { border-top: 1px solid var(--linea); padding-block: clamp(44px, 7vw, 84px); display: grid; gap: 14px; }
+.herramientas > p { max-width: 42em; color: var(--gris); }
+.estante { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 24px 18px; margin-top: 18px; }
+.pieza { display: grid; grid-template-rows: auto 1fr auto; gap: 10px; min-width: 0; }
+.pieza img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border: 1px solid var(--linea); border-radius: 10px; display: block; }
+.pieza h3 { font-size: 18px; font-weight: 700; }
+.pieza p { font-size: 15.5px; color: var(--gris); }
+.pieza a { font-size: 15.5px; display: inline-flex; min-height: 44px; align-items: center; }
+.sin-pantalla { margin-top: 18px; padding: 18px 20px; border: 1px dashed var(--linea-2); border-radius: 10px; max-width: 46em; font-size: 16px; }
+
+/* Cierre */
+.cierre { border-top: 1px solid var(--linea); padding-block: clamp(48px, 8vw, 96px) 40px; display: grid; gap: 18px; }
+.cierre p.grande { text-wrap: balance; font-size: clamp(1.5rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; max-width: 22em; }
+.contacto { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.correo { font-family: var(--f-mono); font-size: 16px; user-select: all; padding: 10px 14px; border: 1px solid var(--linea); border-radius: 8px; background: var(--papel-2); }
+.boton {
+  font: inherit; font-size: 15px; min-height: 44px; padding: 0 18px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--tinta); background: var(--tinta); color: var(--papel);
+}
+.pie { font-family: var(--f-mono); font-size: 12.5px; color: var(--gris); padding-block: 24px 40px; border-top: 1px solid var(--linea); margin-top: 40px; display: grid; gap: 6px; }
+.pie p { max-width: 62em; }
+
+/* Por dentro: lo que ve el equipo */
+.trastienda-t { font-family: var(--f-mono); font-size: 13px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta); display: flex; align-items: center; gap: 10px; }
+.trastienda-t::before { content: ""; width: 18px; height: 2px; background: var(--c, var(--gris)); }
+.trastienda-grilla { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.celu .pantalla { border-radius: 26px; padding: 6px; background: var(--tinta); border-color: var(--tinta); }
+.celu .pantalla-barra { display: none; }
+.celu .pantalla-video video { aspect-ratio: 390 / 760; border-radius: 20px; }
+
+/* Tognoli: el problema de fondo y cómo lo pensamos resolver */
+.fondo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
+.fondo .relato { gap: 14px; }
+.cita { margin: 6px 0 0; padding: 14px 18px; border-radius: 10px; background: var(--papel-2); display: grid; gap: 6px; }
+.cita p { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.cita cite { font-style: normal; font-family: var(--f-mono); font-size: 12.5px; color: var(--gris); }
+.graficos { display: grid; gap: 22px; }
+.grafico { border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; display: grid; gap: 10px; background: var(--papel); }
+.grafico-t { font-weight: 700; font-size: 15.5px; }
+.medidor { display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--papel-2); border: 1px solid var(--linea-2); }
+.medidor span { width: var(--w); background: var(--c-tog); border-right: 2px solid var(--papel); }
+.medidor span:nth-child(even) { opacity: .78; }
+.medidor .medidor-resto { background: var(--alerta); border-right: 0; opacity: 1; }
+.medidor-ejes { display: grid; grid-template-columns: 18.33fr 18.33fr 18.33fr 18.33fr 18.33fr 8.35fr; font-family: var(--f-mono); font-size: 11.5px; color: var(--gris); }
+.medidor-ejes .lleno { color: var(--alerta); font-weight: 500; white-space: nowrap; justify-self: end; }
+.barras { display: grid; gap: 8px; }
+.barra { display: grid; grid-template-columns: 88px minmax(0, 1fr) 48px; align-items: center; gap: 10px; font-size: 13.5px; }
+.barra-l { font-family: var(--f-mono); font-size: 12px; color: var(--gris); }
+.barra-v { height: 14px; border-radius: 4px; background: linear-gradient(var(--c-tog), var(--c-tog)) left / var(--w) 100% no-repeat, var(--papel-2); }
+.barra-n { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+.resolver { display: grid; gap: 16px; }
+.lema { font-size: clamp(1.35rem, 2.8vw, 1.8rem); font-weight: 750; letter-spacing: -.02em; line-height: 1.2; max-width: 24em; text-wrap: balance; }
+.principios { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px; }
+.principios li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--linea); border-radius: 10px; background: var(--papel); align-content: start; }
+.principios strong { font-size: 15.5px; line-height: 1.3; }
+.principios span { font-size: 14.5px; color: var(--gris); line-height: 1.4; }
+.probado { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 20px; align-items: center; padding: 16px 20px; border-radius: 12px; background: var(--papel-2); }
+.probado-n { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--birome); white-space: nowrap; }
+.probado p:not(.probado-n) { max-width: 44em; }
+
+/* —— Angosto —— */
+@media (max-width: 860px) {
+  .caso-cuerpo, .caso--espejo .caso-cuerpo { grid-template-columns: minmax(0, 1fr); }
+  .caso--espejo .caso-cuerpo > figure, .caso--espejo .caso-cuerpo > .lamina { order: 0; }
+  .trastienda-grilla, .fondo { grid-template-columns: minmax(0, 1fr); }
+  .celu { max-width: 280px; justify-self: center; }
+  .probado { grid-template-columns: minmax(0, 1fr); }
+
+  /* El mapa, de arriba hacia abajo: lo propio → el método → las organizaciones */
+  .red { grid-template-columns: minmax(0, 1fr); row-gap: 0; margin-top: 18px; }
+  .red-hilos { display: none; }
+  .red-col { gap: 0; }
+  .red-col--orgs { gap: 10px; }
+  .red-tit { margin-bottom: 10px; }
+  .red-col--orgs .red-tit { margin-bottom: 0; }
+  .red-rotulo, .red-paso {
+    display: flex; align-items: center; gap: 12px; min-height: 40px;
+    font-family: var(--f-mono); font-size: 12px; line-height: 1.35; color: var(--gris);
+  }
+  .red-rotulo { padding-left: 19px; }
+  .red-rotulo::before { content: ""; align-self: stretch; border-left: 1.5px solid var(--linea-2); }
+  .red-rotulo--punteado::before { border-left-style: dashed; }
+  .red-paso { min-height: 60px; padding-left: 14px; }
+  .red-paso svg { flex: none; align-self: stretch; height: auto; color: var(--linea-2); }
+}
+@media (max-width: 520px) {
+  body { font-size: 16.5px; }
+  .celulares { gap: 8px; }
+}
+@media (max-width: 520px) {
+  .mas > summary { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+  .mas > summary small { grid-column: 2; }
+}
+@media (max-width: 340px) { .nw { white-space: normal; } }
+video:fullscreen { background: #000; }
+video:-webkit-full-screen { background: #000; }
+/* Modo oscuro: sólo las 9 imágenes claras bajan el brillo (las oscuras ya lo son) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .clara { filter: brightness(.8); }
+}
+:root[data-theme="dark"] .clara { filter: brightness(.8); }
+.celu .pantalla { background: #1B1D1A; border-color: var(--linea-2); }
+/* Para lectores de pantalla: se lee pero no se ve */
+.oculto { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* Contacto */
+.indice a.escribime { border-color: var(--tinta); font-weight: 600; }
+.contacto a { display: inline-flex; align-items: center; min-height: 44px; }
+a.boton { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.boton--suave { background: transparent; color: var(--tinta); border-color: var(--linea-2); }
+a.correo { color: var(--tinta); text-decoration: none; }
+/* La pastilla de WhatsApp: abajo al centro, lejos de la burbuja verde que traen los videos de los sitios */
+.flota {
+  position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 5;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; white-space: nowrap;
+  background: var(--tinta); color: var(--papel); text-decoration: none; font-size: 15px; font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .18); transition: opacity .2s, visibility .2s;
+}
+.flota[data-oculta] { opacity: 0; visibility: hidden; }
+.mas--ancho .celulares { max-width: 760px; }
+/* En el celular: el resultado antes del video */
+@media (max-width: 860px) {
+  .caso-cuerpo .relato { display: contents; }
+  .caso-cuerpo { gap: 16px; }
+  .caso-cuerpo .logro { order: -1; }
+  .caso-cuerpo > figure { margin-bottom: 6px; }
+}
+/* Las herramientas en filas (2,9 → 1,5 pantallas) */
+@media (max-width: 520px) {
+  .estante { grid-template-columns: 1fr; gap: 18px; }
+  .pieza { grid-template-columns: 120px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 14px; row-gap: 0; align-items: start; }
+  .pieza img { grid-row: 1 / 3; aspect-ratio: 1 / 1; object-fit: cover; object-position: top left; border-radius: 8px; }
+  .pieza h3 { font-size: 17px; }
+  .pieza p { font-size: 15px; line-height: 1.4; text-wrap: balance; }
+  .pieza a { min-height: 40px; font-size: 15px; }
+  .pieza img.centro { object-position: top center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .puntos span.n, .mas > summary::before { transition: none; }
+  .flota { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="hoja" lang="es-AR">
+
+  <header class="portada">
+    <p class="sello">Martín Lleral · <span class="nw">La Plata · octubre 2026</span></p>
+    <h1>Además <em>del pan</em></h1>
+    <p class="bajada-grande">Si me conocés por <span class="nw">Mar de Pan,</span> esto es lo otro que hago: <span class="nw">acompaño a organizaciones</span> a ordenarse para que no dependan de la <span class="nw">memoria de una sola persona</span></p>
+    <ul class="indice" aria-label="Proyectos">
+      <li><a href="#mardepan" style="--c: var(--c-mdp)"><span class="punto"></span>Mar de Pan</a></li>
+      <li><a href="#sab" style="--c: var(--c-sab)"><span class="punto"></span>Sindicato Argentino de Boleros</a></li>
+      <li><a href="#cmg" style="--c: var(--c-cmg)"><span class="punto"></span>CMG</a></li>
+      <li><a href="#tognoli" style="--c: var(--c-tog)"><span class="punto"></span>Tognoli</a></li>
+      <li><a href="#sencia" style="--c: var(--c-sen)"><span class="punto"></span>Sencia</a></li>
+      <li><a href="#domarca" style="--c: var(--c-dom)"><span class="punto"></span>La Domarca</a></li>
+      <li><a href="#herramientas"><span class="punto"></span>Herramientas</a></li>
+      <li><a class="escribime" href="#contacto">Escribime</a></li>
+    </ul>
+  </header>
+
+  <section class="mapa" id="mapa" aria-labelledby="mapa-t">
+    <h2 class="titulo-seccion" id="mapa-t">Cómo se conecta todo</h2>
+    <p>Empezó en la panadería. <span class="nw">Lo que ordené</span> en Mar de Pan se volvió un método y de ahí pasó <span class="nw">a otras organizaciones</span></p>
+
+    <div class="red" id="red">
+      <svg class="red-hilos" id="hilos" aria-hidden="true"></svg>
+
+      <div class="red-col">
+        <p class="red-tit">Lo propio</p>
+        <a class="nodo" id="n-dom" href="#domarca" style="--c: var(--c-dom)">
+          <span class="nodo-tipo">Comunidad regenerativa</span>
+          <span class="nodo-nombre">La Domarca</span>
+          <span class="nodo-piezas">web · actas · informes</span>
+        </a>
+        <p class="red-rotulo red-rotulo--punteado"><span>la panadería es parte de su red</span></p>
+        <a class="nodo" id="n-mdp" href="#mardepan" style="--c: var(--c-mdp)">
+          <span class="nodo-tipo">Panadería, desde 2020</span>
+          <span class="nodo-nombre">Mar de Pan</span>
+          <span class="nodo-piezas">web · panel · rutas · recetas · pagos</span>
+        </a>
+        <p class="red-rotulo"><span>la fermentación, hecha herramienta</span></p>
+        <a class="nodo" id="n-her" href="#herramientas">
+          <span class="nodo-tipo">Herramientas sueltas</span>
+          <span class="nodo-nombre">La Cinta, Masagochi y otras</span>
+          <span class="nodo-piezas">para probar en el navegador</span>
+        </a>
+      </div>
+
+      <p class="red-paso"><svg width="11" height="60" viewBox="0 0 11 60" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V58M1 52l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>el método nació en Mar de Pan</p>
+
+      <div class="red-col red-col--centro">
+        <div class="nodo nodo--hub" id="n-centro">
+          <span class="nodo-tipo">Consultoría</span>
+          <span class="nodo-nombre">Martín Lleral</span>
+          <span class="nodo-piezas">diseño organizacional + IA</span>
+        </div>
+      </div>
+
+      <p class="red-paso"><svg width="11" height="60" viewBox="0 0 11 60" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V58M1 52l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>y de ahí pasó a</p>
+
+      <div class="red-col red-col--orgs">
+        <p class="red-tit">Organizaciones que acompaño</p>
+        <a class="nodo" id="n-sab" href="#sab" style="--c: var(--c-sab)">
+          <span class="nodo-tipo">Cooperativa de músicos</span>
+          <span class="nodo-nombre">Sindicato Argentino de Boleros</span>
+          <span class="nodo-piezas">web · entradas con QR · panel · actas</span>
+        </a>
+        <a class="nodo" id="n-cmg" href="#cmg" style="--c: var(--c-cmg)">
+          <span class="nodo-tipo">Policonsultorio</span>
+          <span class="nodo-nombre">CMG</span>
+          <span class="nodo-piezas">web · turnos · fichas · historia clínica</span>
+        </a>
+        <a class="nodo" id="n-tog" href="#tognoli" style="--c: var(--c-tog)">
+          <span class="nodo-tipo">Gimnasio</span>
+          <span class="nodo-nombre">Tognoli</span>
+          <span class="nodo-piezas">buscador · catálogos · respaldo</span>
+        </a>
+        <a class="nodo" id="n-sen" href="#sencia" style="--c: var(--c-sen)">
+          <span class="nodo-tipo">Comunidad de mujeres +45</span>
+          <span class="nodo-nombre">Sencia</span>
+          <span class="nodo-piezas">web · Mapa · lista de correo</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mar de Pan -->
+  <section class="caso" id="mardepan" style="--c: var(--c-mdp)" aria-labelledby="mdp-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Panadería de masa madre · La Plata</span></p>
+      <h2 id="mdp-t">Mar de Pan</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="pantalla">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>mardepan.com.ar</span></div>
+          <div class="pantalla-video">
+            <video class="clara" src="media/v-mdp.mp4" data-poster="media/v-mdp.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Mar de Pan, armando un pedido"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <figcaption>La web: <span class="nw">elegir el día y armar un pedido</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">El 30 de septiembre el taller <span class="nw m">trabajó sin mí</span></p>
+        <p class="contexto">Antes los pedidos llegaban por WhatsApp y para saber quién había pagado había que abrir los chats uno por uno. <span class="nw">Ahora cada cliente</span> <span class="nw">arma el suyo en la web</span></p>
+        <p class="enlaces"><a href="https://mardepan.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Antes</h3><p>Los pedidos se copiaban a mano en una planilla y <span class="nw">casi todo pasaba por mí.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>La web de pedidos, el panel del equipo y herramientas para la trastienda: <span class="nw">la hoja de</span> armado, la ruta de reparto en Google Maps, las recetas del día y las facturas. <span class="nw">Los pagos los</span> controla una herramienta que busca cada comprobante y lo cruza con el <span class="nw">banco: ya van 35 repartos.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <details class="mas mas--ancho">
+      <summary>Ver lo que usa el equipo <small>pedidos inventados</small></summary>
+      <div class="mas-cuerpo">
+        <figure>
+          <div class="celulares">
+            <img class="clara" src="media/p-mdp-bandeja.jpg" alt="Panel en el celular: la bandeja de pedidos" loading="lazy" width="390" height="575">
+            <img class="clara" src="media/p-mdp-para-la-produ.jpg" alt="Panel en el celular: lo que hay que producir cada día" loading="lazy" width="390" height="575">
+            <img class="clara" src="media/p-mdp-cupos.jpg" alt="Panel en el celular: los cupos de la semana" loading="lazy" width="390" height="575">
+          </div>
+          <figcaption>El panel <span class="nw">del equipo, en el celular</span></figcaption>
+        </figure>
+      </div>
+    </details>
+  </section>
+
+  <!-- SAB -->
+  <section class="caso caso--espejo" id="sab" style="--c: var(--c-sab)" aria-labelledby="sab-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Cooperativa de músicos · La Plata</span></p>
+      <h2 id="sab-t">Sindicato Argentino de Boleros</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="pantalla">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>sindicatoargentinodeboleros.com.ar</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-sab.mp4" data-poster="media/v-sab.jpg" muted loop playsinline preload="none" aria-label="Video: la venta de entradas del Sindicato Argentino de Boleros"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <figcaption>La web: <span class="nw">abrir la compra</span> de una fecha, elegir entradas <span class="nw">y conocer al elenco</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">La venta de entradas pasó a cuentas <span class="nw m">propias del Sindicato</span></p>
+        <p class="contexto">Primero, orden para el grupo: <span class="nw">reuniones con estructura</span> y actas desde la <span class="nw">grabación. Después, la ticketera</span></p>
+        <p class="enlaces"><a href="https://sindicatoargentinodeboleros.com.ar" target="_blank" rel="noopener">Ver la web ↗</a><a href="https://github.com/martinlleral/sab-landing" target="_blank" rel="noopener">Ver el código ↗</a></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Antes</h3><p>Las decisiones se perdían en el grupo de WhatsApp y las reuniones se estiraban. <span class="nw">La ticketera la</span> había construido otro desarrollador, de forma voluntaria: <span class="nw">faltaba asegurarla y darle una casa propia.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>La aseguré, la pasé a cuentas del Sindicato, le sumé una lista de espera y publiqué el código para otras cooperativas. <span class="nw">El validador se</span> <span class="nw">usó en vivo sin fallas.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <details class="mas mas--ancho">
+      <summary>Ver lo que usa el equipo <small>datos inventados</small></summary>
+      <div class="mas-cuerpo">
+        <div class="trastienda-grilla">
+          <figure>
+            <div class="pantalla">
+              <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor"/><path d="M4.5 1.5v9" stroke="currentColor"/></svg><span>Datos inventados · panel del Sindicato</span></div>
+              <div class="pantalla-video">
+                <video src="media/v-sab-panel.mp4" data-poster="media/v-sab-panel.jpg" muted loop playsinline preload="none" aria-label="Video: el panel del Sindicato con datos inventados"></video>
+                <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+              </div>
+            </div>
+            <figcaption>El panel: <span class="nw">las compras de</span> una fecha, buscar a alguien y <span class="nw">las ventas día por día</span></figcaption>
+          </figure>
+          <figure class="celu">
+            <div class="pantalla">
+              <div class="pantalla-barra"><span>En la puerta</span></div>
+              <div class="pantalla-video">
+                <video src="media/v-sab-puerta.mp4" data-poster="media/v-sab-puerta.jpg" muted loop playsinline preload="none" aria-label="Video: validar una entrada en la puerta desde el celular"></video>
+                <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+              </div>
+            </div>
+            <figcaption>En la puerta: <span class="nw">la entrada pasa</span> y, si se vuelve a <span class="nw">mostrar, avisa que ya se usó</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- CMG -->
+  <section class="caso" id="cmg" style="--c: var(--c-cmg)" aria-labelledby="cmg-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Policonsultorio · Gonnet, La Plata</span></p>
+      <h2 id="cmg-t">CMG · Consultorios Médicos Gonnet</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="pantalla">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>cmgonnet.com.ar</span></div>
+          <div class="pantalla-video">
+            <video class="clara" src="media/v-cmg.mp4" data-poster="media/v-cmg.jpg" muted loop playsinline preload="none" aria-label="Video: buscar un profesional y ver sus turnos en la web del CMG"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <figcaption>Buscar «cardilogia», mal escrito a propósito, y ver los turnos libres. <span class="nw">Los nombres van difuminados</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">De ninguno a 79 profesionales con turno <span class="nw m">por la web</span></p>
+        <p class="contexto">El cálculo de lo que cobra cada profesional dependía de una sola persona; ahora lo hace <span class="nw">el sistema cada semana</span></p>
+        <p class="enlaces"><a href="https://cmgonnet.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Antes</h3><p>La web ofrecía reservar turno, pero ninguno de los 87 profesionales estaba habilitado y los turnos <span class="nw">se pedían por WhatsApp.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>Una web con un buscador que entiende aunque escribas mal y turnos con la disponibilidad real. <span class="nw">Adentro, el tablero</span> del día para recepción, la historia clínica y el cálculo semanal de lo que cobra cada uno. <span class="nw">Los datos de</span> salud van cifrados y cada persona ve sólo lo que su tarea necesita. <span class="nw">El sistema anterior</span> se apagó en septiembre, después de cambiar de a partes y <span class="nw">sin cortar la atención.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <details class="mas mas--ancho">
+      <summary>Ver lo que usa el equipo <small>datos inventados</small></summary>
+      <div class="mas-cuerpo">
+        <figure>
+          <div class="pantalla">
+            <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor"/><path d="M4.5 1.5v9" stroke="currentColor"/></svg><span>Panel del consultorio</span></div>
+            <div class="pantalla-video">
+              <video class="clara" src="media/v-cmg-panel.mp4" data-poster="media/v-cmg-panel.jpg" muted loop playsinline preload="none" aria-label="Video: el panel interno del CMG con datos inventados"></video>
+              <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            </div>
+          </div>
+          <figcaption>Recepción da un turno y mira el día y la sala de espera. <span class="nw">Después, la liquidación</span> de la <span class="nw">semana. Ningún paciente es real</span></figcaption>
+        </figure>
+      </div>
+    </details>
+  </section>
+
+  <!-- Tognoli -->
+  <section class="caso caso--espejo" id="tognoli" style="--c: var(--c-tog)" aria-labelledby="tog-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Gimnasio de entrenamiento personalizado</span></p>
+      <h2 id="tog-t">Tognoli</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="lamina">
+          <div class="lamina-cab">
+            <p class="cuenta"><strong id="cuenta-n">939</strong><span id="cuenta-t">ejercicios que el buscador encontraba</span></p>
+            <div class="conmutador" role="group" aria-label="Ver el buscador">
+              <button type="button" id="b-antes" aria-pressed="true">Antes</button>
+              <button type="button" id="b-despues" aria-pressed="false">Después</button>
+            </div>
+          </div>
+          <div class="puntos" id="puntos" data-estado="antes" role="img" aria-label="Esquema del catálogo: 1.045 puntos, uno por ejercicio. Antes del arreglo, los últimos 106 no aparecían en el buscador."></div>
+          <p class="oculto" id="anuncio" aria-live="polite"></p>
+          <p class="leyenda"><span><i style="background: var(--c-tog)"></i>se veían</span><span><i style="background: var(--linea-2)"></i>no aparecían (106)</span><span><i style="background: var(--birome)"></i>aparecen después del arreglo</span></p>
+        </div>
+        <figcaption>Cada punto es un ejercicio. <span class="nw">No hay video</span> porque el sistema real <span class="nw">tiene datos de deportistas</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">El equipo ya encuentra los 106 ejercicios <span class="nw m">que el buscador no mostraba</span></p>
+        <p class="contexto">El buscador de sus planillas había dejado de encontrar los últimos ejercicios. <span class="nw">Lo arreglé con</span> una sola fórmula, sin tocar <span class="nw">lo que ya funcionaba</span></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Antes</h3><p>El gimnasio planifica los entrenamientos en planillas de Google desde 2017: <span class="nw">113 deportistas activos</span> y un catálogo de más de mil ejercicios. <span class="nw">Cada ejercicio nuevo</span> nacía <span class="nw">invisible para el buscador.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>Además del arreglo, cada sistema de entrenamiento pasó a tener su propio catálogo, con machetes para el equipo y un respaldo automático. <span class="nw">Ahora pensamos juntos</span> <span class="nw">el sistema que viene.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <details class="mas mas--ancho">
+      <summary>El problema de fondo y cómo lo pensamos</summary>
+      <div class="mas-cuerpo">
+        <div class="fondo">
+          <div class="relato">
+            <p>Detrás hay 129 plantillas repartidas en cinco sistemas de entrenamiento. <span class="nw">Cada mes, a</span> cada deportista se le copia una: <span class="nw">unas 110 copias</span> por mes y más <span class="nw">de 7.000 desde 2019.</span></p>
+            <p>Cada copia le pide permiso a Google para leer el catálogo. <span class="nw">Google le da</span> a cada fuente 600 lugares: <span class="nw">a ese ritmo,</span> una se llena en <span class="nw">unos cinco meses y medio.</span></p>
+            <blockquote class="cita"><p>«Es importante que no tenga límite, <span class="nw">porque esto es muy creativo»</span></p><cite>El dueño, en la primera charla</cite></blockquote>
+          </div>
+          <div class="graficos">
+            <figure class="grafico">
+              <p class="grafico-t">Una fuente <span class="nw">del catálogo: 600 lugares</span></p>
+              <div class="medidor" role="img" aria-label="Con unas 110 copias por mes, los 600 lugares de una fuente se llenan en unos cinco meses y medio">
+                <span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span class="medidor-resto" style="--w: 8.35%"></span>
+              </div>
+              <div class="medidor-ejes" aria-hidden="true"><span>mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="lleno">lleno</span></div>
+              <figcaption>Una cuenta sobre el ritmo <span class="nw">medido de copias por mes</span></figcaption>
+            </figure>
+            <figure class="grafico">
+              <p class="grafico-t"><span class="nw">Planes que arma el dueño</span></p>
+              <div class="barras" role="img" aria-label="Planes armados por el dueño: 100 % hasta 2022, 66 % en 2024 y 46 % desde 2025">
+                <div class="barra"><span class="barra-l">hasta 2022</span><span class="barra-v" style="--w: 100%"></span><span class="barra-n">100 %</span></div>
+                <div class="barra"><span class="barra-l">2024</span><span class="barra-v" style="--w: 66%"></span><span class="barra-n">66 %</span></div>
+                <div class="barra"><span class="barra-l">desde 2025</span><span class="barra-v" style="--w: 46%"></span><span class="barra-n">46 %</span></div>
+              </div>
+              <figcaption>Medido sobre las planillas: <span class="nw">el resto lo arma el equipo</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="resolver">
+          <h3 class="trastienda-t">Cómo lo pensamos resolver</h3>
+          <p class="lema">Ocho años de método no se reemplazan. <span class="nw">Se les saca el techo.</span></p>
+          <ul class="principios">
+            <li><strong>El número de cada ejercicio no se toca</strong><span>Está grabado en <span class="nw m">ocho años de videos</span></span></li>
+            <li><strong>Lo que funciona se queda</strong><span>Las planillas siguen andando mientras <span class="nw m">se construye lo nuevo</span></span></li>
+            <li><strong>Las palabras son las del gimnasio</strong><span>El sistema <span class="nw m">habla como habla el equipo</span></span></li>
+            <li><strong>De a pasos chicos</strong><span>Cada paso se prueba con el trabajo <span class="nw m">real antes del siguiente</span></span></li>
+            <li><strong>Todo a nombre del gimnasio</strong><span>Las cuentas y <span class="nw m">los datos son suyos</span></span></li>
+          </ul>
+          <div class="probado">
+            <p class="probado-n">2.229 de 2.229</p>
+            <p>Antes de proponer un cambio, lo probé contra el buscador de hoy: <span class="nw">dio los mismos</span> ejercicios, en el mismo orden, <span class="nw">en las 2.229 búsquedas</span></p>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Sencia -->
+  <section class="caso" id="sencia" style="--c: var(--c-sen)" aria-labelledby="sen-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Comunidad de bienestar <span class="nw m">para mujeres +45</span></span></p>
+      <h2 id="sen-t">Sencia</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="pantalla">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>senciaholistica.com.ar</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-sencia.mp4" data-poster="media/v-sencia.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Sencia y el Mapa SENCIA"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <figcaption>Del inicio al resultado del Mapa SENCIA, con las <span class="nw">16 afirmaciones aceleradas</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">Por primera vez Sencia tiene una lista <span class="nw m">de contactos propia</span></p>
+        <p class="contexto">Su web suma el Mapa SENCIA: <span class="nw">16 afirmaciones, escritas</span> por ellas, que le devuelven a cada <span class="nw">mujer en qué momento está</span></p>
+        <p class="enlaces"><a href="https://senciaholistica.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Antes</h3><p>Sencia tenía comunidad en Instagram, Facebook y WhatsApp, pero ninguna lista <span class="nw">de contactos propia.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>Su web, en su dominio. <span class="nw">Quien quiere el</span> resultado del Mapa deja el correo y entra a una lista que le escribe sola los primeros días. <span class="nw">El dominio, el</span> correo, la lista y las cuentas están a nombre de Sencia. <span class="nw">La web también</span> tiene páginas para sus encuentros: <span class="nw">la primera fue UMBRAL.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- La Domarca -->
+  <section class="caso caso--espejo" id="domarca" style="--c: var(--c-dom)" aria-labelledby="dom-t">
+    <div class="caso-cab">
+      <p class="eyebrow"><span class="punto"></span><span>Comunidad regenerativa · <span class="nw m">Colonia Urquiza, La Plata</span></span></p>
+      <h2 id="dom-t">La Domarca</h2>
+    </div>
+    <div class="caso-cuerpo">
+      <figure>
+        <div class="pantalla">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>ladomarca.pages.dev</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-domarca.mp4" data-poster="media/v-domarca.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <figcaption>La web: <span class="nw">bajar por las capas del bosque</span></figcaption>
+      </figure>
+      <div class="relato">
+        <p class="logro">La comunidad tiene <span class="nw m">su web,</span> <span class="nw m">del dosel a las raíces</span></p>
+        <p class="contexto">Soy parte de la comunidad: <span class="nw">cinco hectáreas a</span> orillas del Arroyo Rodríguez donde vecinos, productores y artistas regeneran <span class="nw">el suelo y cuidan el agua</span></p>
+        <p class="enlaces"><a href="https://ladomarca.pages.dev" target="_blank" rel="noopener">Ver la web ↗</a></p>
+        <details class="mas">
+          <summary>Cómo lo hice</summary>
+          <div class="mas-cuerpo">
+            <div class="tramo"><h3>Lo que hice</h3><p>La web, las actas de asamblea escritas desde la grabación, el Drive compartido y un informe de bombeo solar. <span class="nw">Lo próximo es</span> una <span class="nw">web para recibir aportes.</span></p></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cierre" id="contacto" aria-label="Contacto">
+    <p class="grande">Si algo de esto le sirve <span class="nw">a tu organización,</span> <span class="nw">lo charlamos</span></p>
+    <div class="contacto">
+      <a class="boton" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
+      <a class="correo" id="correo" href="mailto:martinlleral@gmail.com?subject=Vi%20Adem%C3%A1s%20del%20pan">martinlleral@gmail.com</a>
+      <button class="boton boton--suave" type="button" id="copiar">Copiar el correo</button>
+      <a href="https://www.linkedin.com/in/martinlleral/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <!-- Herramientas -->
+  <section class="herramientas" id="herramientas" aria-labelledby="her-t">
+    <h2 class="titulo-seccion" id="her-t">Herramientas sueltas</h2>
+    <p>Algunas salieron de la panadería y otras de la curiosidad. <span class="nw">Se prueban en el navegador</span></p>
+    <div class="estante">
+      <article class="pieza">
+        <img class="clara" src="media/h-la-cinta.jpg" alt="La Cinta: la curva de la masa madre y la hora del pico" loading="lazy" width="720" height="450">
+        <div><h3>La Cinta</h3><p>Calcula a qué hora la masa madre llega a cada marca del balde, para que <span class="nw">la refresque otra persona</span></p></div>
+        <a href="https://martinlleral.github.io/la-cinta/" target="_blank" rel="noopener">Probala ↗</a>
+      </article>
+      <article class="pieza">
+        <img class="clara" src="media/h-masagochi.jpg" alt="Masagochi: controles de la masa madre y su curva de fermentación" loading="lazy" width="720" height="450">
+        <div><h3>Masagochi</h3><p>Un simulador para entender cómo <span class="nw">fermenta la masa madre</span></p></div>
+        <a href="https://martinlleral.github.io/masagochi/" target="_blank" rel="noopener">Probalo ↗</a>
+      </article>
+      <article class="pieza">
+        <img src="media/h-ogbon.jpg" alt="Ogbon: un ritmo dibujado como círculos de golpes" loading="lazy" width="720" height="450">
+        <div><h3>Ogbon</h3><p>Ritmos de percusión afrobrasileña dibujados <span class="nw">como círculos que suenan</span></p></div>
+        <a href="https://martinlleral.github.io/ogbon/" target="_blank" rel="noopener">Probalo ↗</a>
+      </article>
+      <article class="pieza">
+        <img class="clara centro" src="media/h-finanzas-v6.jpg" alt="Finanzas: el teclado para anotar un ingreso o un gasto" loading="lazy" width="720" height="450">
+        <div><h3>Finanzas</h3><p>Una app para anotar los gastos de la casa en dos toques. <span class="nw">La demo tiene</span> <span class="nw">datos inventados</span></p></div>
+        <a href="https://martinlleral.github.io/finanzas-v6/" target="_blank" rel="noopener">Probala ↗</a>
+      </article>
+      <article class="pieza">
+        <img src="media/h-lamp-architect.jpg" alt="Lamp Architect: una lámpara de hilo en 3D con sus medidas" loading="lazy" width="720" height="450">
+        <div><h3>Lamp Architect</h3><p>Diseña lámparas de hilo en 3D y calcula <span class="nw">cuántos metros</span> <span class="nw">de hilo llevan</span></p></div>
+        <a href="https://martinlleral.github.io/lamp-architect/" target="_blank" rel="noopener">Probalo ↗</a>
+      </article>
+    </div>
+    <p class="sin-pantalla">Y una sin pantalla: <span class="nw m"><strong>Desgrabar</strong> pasa una</span> reunión a texto, con quién dijo qué, sin que el audio salga de la compu. <span class="nw m">De ahí salen las actas</span></p>
+  </section>
+
+
+  <a class="flota" id="flota" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D" target="_blank" rel="noopener" data-oculta><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
+
+  <footer class="pie">
+    <p><span class="nw">Martín Lleral · La Plata</span></p>
+    <p>Videos grabados el 22/10/2026. <span class="nw">En los sitios</span> reales no se compró, reservó ni envió nada. <span class="nw">Los paneles muestran datos inventados</span></p>
+  </footer>
+</div>
+
+<script>
+document.documentElement.lang = 'es-AR';
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Videos: arrancan solos cuando se ven (salvo con «reducir movimiento») y siempre se pueden pausar.
+     Los que están adentro de un desplegable cerrado no se ven, así que arrancan recién al abrirlo */
+  const pausadoPorVos = new WeakSet();
+  let moverBotones = () => {}; /* la pastilla de WhatsApp se vuelve a fijar cuando un botón de video cambia de lugar */
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entradas => {
+    entradas.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting && e.intersectionRatio > 0.35) {
+        clearTimeout(v._t);
+        v._t = setTimeout(() => { if (!reduce && !pausadoPorVos.has(v)) v.play().catch(() => { v.parentElement.classList.add('quieto'); moverBotones(); }); }, 600);
+      } else {
+        clearTimeout(v._t);
+        if (!v.paused && document.fullscreenElement !== v && !v.webkitDisplayingFullscreen) v.pause();
+      }
+    });
+  }, { threshold: [0, 0.35, 0.7] }) : null;
+  const cerca = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const v = e.target; if (v.dataset.poster) v.poster = v.dataset.poster; cerca.unobserve(v); } }), { rootMargin: '150% 0px' }) : null;
+  document.querySelectorAll('video[data-poster]').forEach(v => { if (cerca) cerca.observe(v); else v.poster = v.dataset.poster; });
+
+  /* Ver en grande: con la API de pantalla completa si el visor la permite; en el iPhone, el reproductor propio */
+  const conApi = 'requestFullscreen' in Element.prototype || 'webkitRequestFullscreen' in Element.prototype;
+  const grandeOk = conApi ? !!(document.fullscreenEnabled || document.webkitFullscreenEnabled) : 'webkitEnterFullscreen' in HTMLVideoElement.prototype;
+  const agrandar = v => {
+    pausadoPorVos.delete(v);
+    v.play().catch(() => {});
+    if (document.fullscreenEnabled && v.requestFullscreen) v.requestFullscreen().catch(() => {});
+    else if (document.webkitFullscreenEnabled && v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+    else if (v.webkitEnterFullscreen) { try { v.webkitEnterFullscreen(); } catch (e) { v.controls = true; } }
+  };
+  /* En pantalla completa, los controles del navegador: así se ve cómo salir */
+  const alCambiar = () => {
+    const fs = document.fullscreenElement || document.webkitFullscreenElement;
+    document.querySelectorAll('.pantalla-video video').forEach(x => { x.controls = x === fs; });
+  };
+  document.addEventListener('fullscreenchange', alCambiar);
+  document.addEventListener('webkitfullscreenchange', alCambiar);
+
+  document.querySelectorAll('.pantalla-video').forEach(caja => {
+    const v = caja.querySelector('video');
+    const b = caja.querySelector('.pausa');
+    const g = caja.querySelector('.agrandar');
+    const pintar = () => {
+      const anda = !v.paused;
+      b.dataset.estado = anda ? 'play' : 'pausa';
+      b.setAttribute('aria-label', anda ? 'Pausar video' : 'Reproducir video');
+    };
+    const alternar = () => {
+      if (v.controls) return;
+      if (v.paused) { pausadoPorVos.delete(v); v.play().catch(() => {}); }
+      else { pausadoPorVos.add(v); v.pause(); }
+    };
+    b.addEventListener('click', alternar);
+    v.addEventListener('click', alternar);
+    v.addEventListener('play', () => { caja.classList.remove('quieto'); pintar(); moverBotones(); });
+    v.addEventListener('pause', pintar);
+    if (g) { if (grandeOk) g.addEventListener('click', () => agrandar(v)); else g.remove(); }
+    if (reduce) pausadoPorVos.add(v);
+    if (io) io.observe(v);
+    pintar();
+  });
+
+  /* El mapa: hilos entre los nodos, recalculados con el ancho */
+  const red = document.getElementById('red');
+  const svg = document.getElementById('hilos');
+  const NS = 'http://www.w3.org/2000/svg';
+  const HILOS = [
+    { de: 'n-mdp', a: 'n-centro', forma: 'h', rotulo: ['el método', 'nació acá'] },
+    { de: 'n-centro', a: 'n-sab', forma: 'h' },
+    { de: 'n-centro', a: 'n-cmg', forma: 'h' },
+    { de: 'n-centro', a: 'n-tog', forma: 'h' },
+    { de: 'n-centro', a: 'n-sen', forma: 'h' },
+    { de: 'n-dom', a: 'n-mdp', forma: 'v', rotulo: 'la panadería es parte de su red', punteado: true },
+    { de: 'n-mdp', a: 'n-her', forma: 'v', rotulo: 'la fermentación, hecha herramienta' },
+  ];
+  const el = (tag, attrs) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+  function dibujar() {
+    if (getComputedStyle(svg).display === 'none') return;
+    const R = red.getBoundingClientRect();
+    svg.setAttribute('viewBox', `0 0 ${R.width} ${R.height}`);
+    svg.replaceChildren();
+    const caja = id => {
+      const r = document.getElementById(id).getBoundingClientRect();
+      return { l: r.left - R.left, r: r.right - R.left, t: r.top - R.top, b: r.bottom - R.top, cx: (r.left + r.right) / 2 - R.left, cy: (r.top + r.bottom) / 2 - R.top };
+    };
+    HILOS.forEach(h => {
+      const A = caja(h.de), B = caja(h.a);
+      let d, x1, y1, x2, y2, tx, ty, ancla;
+      if (h.forma === 'h') {
+        x1 = A.r; y1 = A.cy; x2 = B.l; y2 = B.cy;
+        const m = (x1 + x2) / 2;
+        d = `M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}`;
+        tx = m; ty = Math.min(y1, y2) - 12; ancla = 'middle';
+      } else {
+        x1 = A.l + 20; y1 = A.b; x2 = x1; y2 = B.t;
+        d = `M${x1},${y1} L${x2},${y2}`;
+        tx = x1 + 12; ty = (y1 + y2) / 2 + 4; ancla = 'start';
+      }
+      svg.append(el('path', { d, class: h.punteado ? 'punteado' : '' }));
+      svg.append(el('circle', { cx: x1, cy: y1, r: 3 }), el('circle', { cx: x2, cy: y2, r: 3 }));
+      if (h.rotulo) {
+        const lineas = [].concat(h.rotulo);
+        const t = el('text', { x: tx, y: ty - (lineas.length - 1) * 15, 'text-anchor': ancla });
+        lineas.forEach((l, i) => { const s = el('tspan', { x: tx, dy: i ? 15 : 0 }); s.textContent = l; t.append(s); });
+        svg.append(t);
+      }
+    });
+  }
+  dibujar();
+  if ('ResizeObserver' in window) new ResizeObserver(dibujar).observe(red);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(dibujar);
+
+  /* Tognoli: 1.045 ejercicios; antes del arreglo el buscador veía 939 */
+  const puntos = document.getElementById('puntos');
+  const TOTAL = 1045, ANTES = 939;
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < TOTAL; i++) {
+    const s = document.createElement('span');
+    if (i >= ANTES) { s.className = 'n'; s.style.setProperty('--i', i - ANTES); }
+    frag.append(s);
+  }
+  puntos.append(frag);
+  const bA = document.getElementById('b-antes'), bD = document.getElementById('b-despues');
+  const nC = document.getElementById('cuenta-n'), tC = document.getElementById('cuenta-t');
+  const poner = estado => {
+    puntos.dataset.estado = estado;
+    bA.setAttribute('aria-pressed', String(estado === 'antes'));
+    bD.setAttribute('aria-pressed', String(estado === 'despues'));
+    nC.textContent = estado === 'antes' ? '939' : '1.045';
+    tC.textContent = estado === 'antes' ? 'ejercicios que el buscador encontraba' : 'ejercicios que encuentra después del arreglo';
+  };
+  let ciclo = null;
+  const parar = () => { if (ciclo) { clearInterval(ciclo); ciclo = null; } };
+  /* El anuncio está vacío desde la carga y sólo habla cuando la persona toca Antes o Después */
+  const anuncio = document.getElementById('anuncio');
+  const tocar = est => { parar(); poner(est); anuncio.textContent = nC.textContent + ' ' + tC.textContent; };
+  bA.addEventListener('click', () => tocar('antes'));
+  bD.addEventListener('click', () => tocar('despues'));
+  /* El ciclo sólo corre mientras la lámina se ve, y nunca con «reducir movimiento» o después de que la persona eligió */
+  let elegido = false;
+  bA.addEventListener('click', () => { elegido = true; }); bD.addEventListener('click', () => { elegido = true; });
+  const arrancar = () => { if (!ciclo && !reduce && !elegido) ciclo = setInterval(() => poner(puntos.dataset.estado === 'antes' ? 'despues' : 'antes'), 3600); };
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? arrancar() : parar()), { threshold: 0.2 }).observe(puntos);
+  else arrancar();
+
+  /* WhatsApp: la pastilla aparece después del mapa, se esconde al llegar al contacto y nunca tapa un botón de video */
+  const flota = document.getElementById('flota');
+  if (flota) {
+    const mapa = document.getElementById('mapa'), cierre = document.getElementById('contacto');
+    const botones = [...document.querySelectorAll('.pausa, .agrandar')];
+    const choca = (a, b) => a.left < b.right + 6 && b.left < a.right + 6 && a.top < b.bottom + 6 && b.top < a.bottom + 6;
+    let pedido = false;
+    const revisar = () => {
+      pedido = false;
+      let ver = mapa.getBoundingClientRect().bottom < 0 && cierre.getBoundingClientRect().top > innerHeight;
+      if (ver) { const r = flota.getBoundingClientRect(); ver = !botones.some(b => { const q = b.getBoundingClientRect(); return q.width > 0 && choca(r, q); }); }
+      flota.toggleAttribute('data-oculta', !ver);
+    };
+    const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(revisar); } };
+    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('resize', pedir);
+    document.addEventListener('toggle', pedir, true);
+    moverBotones = pedir;
+    revisar();
+  }
+
+  /* Copiar el correo */
+  const copiar = document.getElementById('copiar');
+  copiar.addEventListener('click', () => {
+    const texto = document.getElementById('correo').textContent.trim();
+    const listo = () => { copiar.textContent = 'Copiado'; setTimeout(() => { copiar.textContent = 'Copiar el correo'; }, 1800); };
+    const elegir = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('correo')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copiar.textContent = 'Seleccionado: copialo a mano'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(listo, elegir); else elegir();
+  });
+})();
+</script>
+</body>
+</html>
