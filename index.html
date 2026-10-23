@@ -313,7 +313,7 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
 @media (max-width: 340px) { .nw { white-space: normal; } }
 video:fullscreen { background: #000; }
 video:-webkit-full-screen { background: #000; }
-/* Modo oscuro: sólo las 9 imágenes claras bajan el brillo (las oscuras ya lo son) */
+/* Modo oscuro: sólo las 11 imágenes claras bajan el brillo (las oscuras ya lo son) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .clara { filter: brightness(.8); }
 }
@@ -353,6 +353,18 @@ a.correo { color: var(--tinta); text-decoration: none; }
   .pieza a { min-height: 40px; font-size: 15px; }
   .pieza img.centro { object-position: top center; }
 }
+/* Dos videos por caso (v4): el apaisado en la compu y, hasta 860 px, el sitio de celular en 3:4, donde la letra
+   del sitio se lee. El que no corresponde va con display:none: con preload="none" y el póster diferido no pide nada */
+.pantalla--celu { display: none; }
+@media (max-width: 860px) {
+  .pantalla--compu { display: none; }
+  .pantalla--celu { display: block; max-width: 480px; }
+  .pantalla--celu .pantalla-video video { aspect-ratio: 390 / 520; }
+  /* El botón, arriba a la derecha: abajo a la izquierda tapaba la barra del pedido, «Reservar» o «Anterior» */
+  .pantalla--celu .pantalla-video:not(.quieto) .pausa { left: auto; bottom: auto; top: 10px; right: 10px; }
+}
+/* El primer encuentro, debajo de la frase del cierre */
+.cierre p.nota { margin-top: -8px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; color: var(--gris); max-width: 34em; }
 @media (prefers-reduced-motion: reduce) {
   .puntos span.n, .mas > summary::before { transition: none; }
   .flota { transition: none; }
@@ -452,12 +464,19 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
     <div class="caso-cuerpo">
       <figure>
-        <div class="pantalla">
+        <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>mardepan.com.ar</span></div>
           <div class="pantalla-video">
             <video class="clara" src="media/v-mdp.mp4" data-poster="media/v-mdp.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Mar de Pan, armando un pedido"></video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <div class="pantalla pantalla--celu">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>mardepan.com.ar</span></div>
+          <div class="pantalla-video">
+            <video class="clara" src="media/v-mdp-34.mp4" data-poster="media/v-mdp-34.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Mar de Pan, armando un pedido"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
         <figcaption>La web: <span class="nw">elegir el día y armar un pedido</span></figcaption>
@@ -498,12 +517,19 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
     <div class="caso-cuerpo">
       <figure>
-        <div class="pantalla">
+        <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>sindicatoargentinodeboleros.com.ar</span></div>
           <div class="pantalla-video">
             <video src="media/v-sab.mp4" data-poster="media/v-sab.jpg" muted loop playsinline preload="none" aria-label="Video: la venta de entradas del Sindicato Argentino de Boleros"></video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <div class="pantalla pantalla--celu">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>sindicatoargentinodeboleros.com.ar</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-sab-34.mp4" data-poster="media/v-sab-34.jpg" muted loop playsinline preload="none" aria-label="Video: la venta de entradas del Sindicato Argentino de Boleros"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
         <figcaption>La web: <span class="nw">abrir la compra</span> de una fecha, elegir entradas <span class="nw">y conocer al elenco</span></figcaption>
@@ -558,12 +584,19 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
     <div class="caso-cuerpo">
       <figure>
-        <div class="pantalla">
+        <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>cmgonnet.com.ar</span></div>
           <div class="pantalla-video">
             <video class="clara" src="media/v-cmg.mp4" data-poster="media/v-cmg.jpg" muted loop playsinline preload="none" aria-label="Video: buscar un profesional y ver sus turnos en la web del CMG"></video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <div class="pantalla pantalla--celu">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>cmgonnet.com.ar</span></div>
+          <div class="pantalla-video">
+            <video class="clara" src="media/v-cmg-34.mp4" data-poster="media/v-cmg-34.jpg" muted loop playsinline preload="none" aria-label="Video: buscar un profesional y ver sus turnos en la web del CMG"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
         <figcaption>Buscar «cardilogia», mal escrito a propósito, y ver los turnos libres. <span class="nw">Los nombres van difuminados</span></figcaption>
@@ -689,12 +722,19 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
     <div class="caso-cuerpo">
       <figure>
-        <div class="pantalla">
+        <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>senciaholistica.com.ar</span></div>
           <div class="pantalla-video">
             <video src="media/v-sencia.mp4" data-poster="media/v-sencia.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Sencia y el Mapa SENCIA"></video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <div class="pantalla pantalla--celu">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>senciaholistica.com.ar</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-sencia-34.mp4" data-poster="media/v-sencia-34.jpg" muted loop playsinline preload="none" aria-label="Video: la web de Sencia y el Mapa SENCIA"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
         <figcaption>Del inicio al resultado del Mapa SENCIA, con las <span class="nw">16 afirmaciones aceleradas</span></figcaption>
@@ -722,12 +762,19 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
     <div class="caso-cuerpo">
       <figure>
-        <div class="pantalla">
+        <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>ladomarca.pages.dev</span></div>
           <div class="pantalla-video">
             <video src="media/v-domarca.mp4" data-poster="media/v-domarca.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque"></video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
+        <div class="pantalla pantalla--celu">
+          <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>ladomarca.pages.dev</span></div>
+          <div class="pantalla-video">
+            <video src="media/v-domarca-34.mp4" data-poster="media/v-domarca-34.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque"></video>
+            <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
         <figcaption>La web: <span class="nw">bajar por las capas del bosque</span></figcaption>
@@ -748,8 +795,9 @@ a.correo { color: var(--tinta); text-decoration: none; }
 
   <section class="cierre" id="contacto" aria-label="Contacto">
     <p class="grande">Si algo de esto le sirve <span class="nw">a tu organización,</span> <span class="nw">lo charlamos</span></p>
+    <p class="nota">El primer encuentro es para conocer <span class="nw">tu organización y no se cobra</span></p>
     <div class="contacto">
-      <a class="boton" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
+      <a class="boton" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D.%20Lo%20que%20nos%20pasa%20es%E2%80%A6" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
       <a class="correo" id="correo" href="mailto:martinlleral@gmail.com?subject=Vi%20Adem%C3%A1s%20del%20pan">martinlleral@gmail.com</a>
       <button class="boton boton--suave" type="button" id="copiar">Copiar el correo</button>
       <a href="https://www.linkedin.com/in/martinlleral/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -791,11 +839,11 @@ a.correo { color: var(--tinta); text-decoration: none; }
   </section>
 
 
-  <a class="flota" id="flota" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D" target="_blank" rel="noopener" data-oculta><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
+  <a class="flota" id="flota" href="https://wa.me/5492216784252?text=Hola%20Mart%C3%ADn%2C%20vi%20%E2%80%9CAdem%C3%A1s%20del%20pan%E2%80%9D.%20Lo%20que%20nos%20pasa%20es%E2%80%A6" target="_blank" rel="noopener" data-oculta><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Escribime por WhatsApp</a>
 
   <footer class="pie">
     <p><span class="nw">Martín Lleral · La Plata</span></p>
-    <p>Videos grabados el 22/10/2026. <span class="nw">En los sitios</span> reales no se compró, reservó ni envió nada. <span class="nw">Los paneles muestran datos inventados</span></p>
+    <p>Videos grabados el 22 y el 23/10/2026. <span class="nw">En los sitios</span> reales no se compró, reservó ni envió nada. <span class="nw">Los paneles muestran datos inventados</span></p>
   </footer>
 </div>
 
