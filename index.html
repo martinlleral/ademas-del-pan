@@ -358,6 +358,8 @@ a.correo { color: var(--tinta); text-decoration: none; }
   /* El botón, arriba a la derecha: abajo a la izquierda tapaba la barra del pedido, «Reservar» o «Anterior» */
   .pantalla--celu .pantalla-video:not(.quieto) .pausa { left: auto; bottom: auto; top: 10px; right: 10px; }
 }
+/* La línea de 2026, debajo de la bajada */
+.portada .hecho { margin-top: -14px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; color: var(--gris); text-wrap: balance; }
 /* El primer encuentro, debajo de la frase del cierre */
 .cierre p.nota { margin-top: -8px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; color: var(--gris); max-width: 34em; }
 @media (prefers-reduced-motion: reduce) {
@@ -373,6 +375,7 @@ a.correo { color: var(--tinta); text-decoration: none; }
     <p class="sello">Martín Lleral · <span class="nw">La Plata · octubre 2026</span></p>
     <h1>Además <em>del pan</em></h1>
     <p class="bajada-grande">Si me conocés por <span class="nw">Mar de Pan,</span> esto es lo otro que hago: <span class="nw">acompaño a organizaciones</span> a ordenarse para que no dependan de la <span class="nw">memoria de una sola persona</span></p>
+    <p class="hecho">Todo lo de esta página <span class="nw">lo armé en 2026</span></p>
     <ul class="indice" aria-label="Proyectos">
       <li><a href="#mardepan" style="--c: var(--c-mdp)"><span class="punto"></span>Mar de Pan</a></li>
       <li><a href="#sab" style="--c: var(--c-sab)"><span class="punto"></span>Sindicato Argentino de Boleros</a></li>
@@ -388,6 +391,7 @@ a.correo { color: var(--tinta); text-decoration: none; }
   <section class="mapa" id="mapa" aria-labelledby="mapa-t">
     <h2 class="titulo-seccion" id="mapa-t">Cómo se conecta todo</h2>
     <p>Empezó en la panadería. <span class="nw">Lo que ordené</span> en Mar de Pan se volvió un método y de ahí pasó <span class="nw">a otras organizaciones</span></p>
+    <p>Ordenar viene de antes: <span class="nw">de chico desarmaba</span> programas para ver cómo andaban y en <span class="nw">La Caipo,</span> el centro cultural que teníamos, ya llevaba la caja y el stock <span class="nw">en planillas</span></p>
 
     <div class="red" id="red">
       <svg class="red-hilos" id="hilos" aria-hidden="true"></svg>
@@ -485,14 +489,14 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <figcaption>La web: <span class="nw">elegir el día y armar un pedido</span></figcaption>
       </figure>
       <div class="relato">
-        <p class="logro">El 30 de septiembre el taller <span class="nw m">trabajó sin mí</span></p>
+        <p class="logro">Lo que estaba <span class="nw m">en mi memoria</span> ahora es <span class="nw m">un método</span> <span class="nw m">que lleva el equipo</span></p>
         <p class="contexto">Antes los pedidos llegaban por WhatsApp y para saber quién había pagado había que abrir los chats uno por uno. <span class="nw">Ahora cada cliente</span> <span class="nw">arma el suyo en la web</span></p>
         <p class="enlaces"><a href="https://mardepan.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>Los pedidos se copiaban a mano en una planilla y <span class="nw">casi todo pasaba por mí.</span></p></div>
-            <div class="tramo"><h3>Lo que hice</h3><p>La web de pedidos, el panel del equipo y herramientas para la trastienda: <span class="nw">la hoja de</span> armado, la ruta de reparto en Google Maps, las recetas del día y las facturas. <span class="nw">Los pagos los</span> controla una herramienta que busca cada comprobante y lo cruza con el <span class="nw">banco: ya van 35 repartos.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>La web de pedidos, el panel del equipo y herramientas para la trastienda: <span class="nw">la hoja de</span> armado, la ruta de reparto en Google Maps, las recetas del día y las facturas. <span class="nw">Los pagos los</span> controla una herramienta que busca cada comprobante y lo cruza con el <span class="nw">banco: ya van 35 repartos.</span> <span class="nw">Y el oficio</span> lo escribí en una bitácora de cada corrida de masa madre y en notas de planificación, para que lo lleven otras manos: <span class="nw">el 30 de septiembre</span> el taller <span class="nw">trabajó sin mí.</span></p></div>
           </div>
         </details>
       </div>
