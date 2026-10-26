@@ -148,6 +148,11 @@ a.nodo:hover { border-color: var(--c, var(--linea-2)); }
 .contexto { color: var(--gris); }
 .tramo { display: grid; gap: 6px; }
 .tramo h3 { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+/* SAB: lo que se le sumó a la ticketera, como etiquetas */
+.sumado { display: grid; gap: 8px; }
+.sumado-t { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+.sumado ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.sumado li { font-size: 14px; line-height: 1.3; padding: 5px 11px; border: 1px solid var(--linea); border-left: 3px solid var(--c); border-radius: 6px; background: var(--papel-2); }
 .enlaces { display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 16px; }
 .enlaces a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
 
@@ -247,7 +252,7 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
 .celu .pantalla-barra { display: none; }
 .celu .pantalla-video video { aspect-ratio: 390 / 760; border-radius: 20px; }
 
-/* Tognoli: el problema de fondo y cómo lo pensamos resolver */
+/* Tognoli: el sistema que estamos diseñando */
 .fondo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
 .fondo .relato { gap: 14px; }
 .cita { margin: 6px 0 0; padding: 14px 18px; border-radius: 10px; background: var(--papel-2); display: grid; gap: 6px; }
@@ -256,12 +261,6 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
 .graficos { display: grid; gap: 22px; }
 .grafico { border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; display: grid; gap: 10px; background: var(--papel); }
 .grafico-t { font-weight: 700; font-size: 15.5px; }
-.medidor { display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--papel-2); border: 1px solid var(--linea-2); }
-.medidor span { width: var(--w); background: var(--c-tog); border-right: 2px solid var(--papel); }
-.medidor span:nth-child(even) { opacity: .78; }
-.medidor .medidor-resto { background: var(--alerta); border-right: 0; opacity: 1; }
-.medidor-ejes { display: grid; grid-template-columns: 18.33fr 18.33fr 18.33fr 18.33fr 18.33fr 8.35fr; font-family: var(--f-mono); font-size: 11.5px; color: var(--gris); }
-.medidor-ejes .lleno { color: var(--alerta); font-weight: 500; white-space: nowrap; justify-self: end; }
 .barras { display: grid; gap: 8px; }
 .barra { display: grid; grid-template-columns: 88px minmax(0, 1fr) 48px; align-items: center; gap: 10px; font-size: 13.5px; }
 .barra-l { font-family: var(--f-mono); font-size: 12px; color: var(--gris); }
@@ -273,9 +272,6 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
 .principios li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--linea); border-radius: 10px; background: var(--papel); align-content: start; }
 .principios strong { font-size: 15.5px; line-height: 1.3; }
 .principios span { font-size: 14.5px; color: var(--gris); line-height: 1.4; }
-.probado { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 20px; align-items: center; padding: 16px 20px; border-radius: 12px; background: var(--papel-2); }
-.probado-n { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--birome); white-space: nowrap; }
-.probado p:not(.probado-n) { max-width: 44em; }
 
 /* —— Angosto —— */
 @media (max-width: 860px) {
@@ -283,7 +279,6 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
   .caso--espejo .caso-cuerpo > figure, .caso--espejo .caso-cuerpo > .lamina { order: 0; }
   .trastienda-grilla, .fondo { grid-template-columns: minmax(0, 1fr); }
   .celu { max-width: 280px; justify-self: center; }
-  .probado { grid-template-columns: minmax(0, 1fr); }
 
   /* El mapa, de arriba hacia abajo: lo propio → el método → las organizaciones */
   .red { grid-template-columns: minmax(0, 1fr); row-gap: 0; margin-top: 18px; }
@@ -435,7 +430,7 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <a class="nodo" id="n-sab" href="#sab" style="--c: var(--c-sab)">
           <span class="nodo-tipo">Cooperativa de músicos</span>
           <span class="nodo-nombre">Sindicato Argentino de Boleros</span>
-          <span class="nodo-piezas">web · entradas con QR · panel · actas</span>
+          <span class="nodo-piezas">web · entradas · cupones · tableros · actas</span>
         </a>
         <a class="nodo" id="n-cmg" href="#cmg" style="--c: var(--c-cmg)">
           <span class="nodo-tipo">Policonsultorio</span>
@@ -445,7 +440,7 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <a class="nodo" id="n-tog" href="#tognoli" style="--c: var(--c-tog)">
           <span class="nodo-tipo">Gimnasio</span>
           <span class="nodo-nombre">Tognoli</span>
-          <span class="nodo-piezas">buscador · catálogos · respaldo</span>
+          <span class="nodo-piezas">buscador · catálogos · sistema a medida</span>
         </a>
         <a class="nodo" id="n-sen" href="#sencia" style="--c: var(--c-sen)">
           <span class="nodo-tipo">Comunidad de mujeres +45</span>
@@ -535,14 +530,30 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <figcaption>La web: <span class="nw">abrir la compra</span> de una fecha, elegir entradas <span class="nw">y conocer al elenco</span></figcaption>
       </figure>
       <div class="relato">
-        <p class="logro">La venta de entradas pasó a cuentas <span class="nw m">propias del Sindicato</span></p>
-        <p class="contexto">Primero, orden para el grupo: <span class="nw">reuniones con estructura</span> y actas desde la <span class="nw">grabación. Después, la ticketera</span></p>
+        <p class="logro">El Sindicato vende, mide y controla cada fecha <span class="nw m">desde su propio sistema</span></p>
+        <p class="contexto">Primero, orden para el grupo: <span class="nw">reuniones con estructura</span> y actas desde la grabación. <span class="nw">Después, la ticketera</span> creció con <span class="nw">lo que pedía cada fecha</span></p>
+        <div class="sumado">
+          <p class="sumado-t">Lo que le sumé</p>
+          <ul>
+            <li>Cupones de descuento</li>
+            <li>Tandas con precio y cupo</li>
+            <li>Entrada a la gorra</li>
+            <li>Menú con la entrada</li>
+            <li>Link para vender una fecha</li>
+            <li>Tableros de ventas y asistencia</li>
+            <li>Link con el reporte de ventas</li>
+            <li>Compradores en planilla</li>
+            <li>Link para validar en la puerta</li>
+            <li>Devoluciones</li>
+            <li>Preinscripción al Sindicato</li>
+          </ul>
+        </div>
         <p class="enlaces"><a href="https://sindicatoargentinodeboleros.com.ar" target="_blank" rel="noopener">Ver la web ↗</a><a href="https://github.com/martinlleral/sab-landing" target="_blank" rel="noopener">Ver el código ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
-            <div class="tramo"><h3>Antes</h3><p>Las decisiones se perdían en el grupo de WhatsApp y las reuniones se estiraban. <span class="nw">La ticketera la</span> había construido otro desarrollador, de forma voluntaria: <span class="nw">faltaba asegurarla y darle una casa propia.</span></p></div>
-            <div class="tramo"><h3>Lo que hice</h3><p>La aseguré, la pasé a cuentas del Sindicato, le sumé una lista de espera y publiqué el código para otras cooperativas. <span class="nw">El validador se</span> <span class="nw">usó en vivo sin fallas.</span></p></div>
+            <div class="tramo"><h3>Antes</h3><p>Las decisiones se perdían en el grupo de WhatsApp y las reuniones se estiraban. <span class="nw">La base de</span> la ticketera la había construido otro desarrollador, de forma voluntaria: <span class="nw">la compra, el</span> QR de cada entrada y el panel. <span class="nw">Faltaba asegurarla y darle una casa propia.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>La aseguré y la pasé a cuentas del Sindicato. <span class="nw">Los links se</span> comparten sin dar acceso al panel: <span class="nw">el del reporte</span> muestra sólo números y el de la puerta valida las entradas desde cualquier celular. <span class="nw">El validador se</span> usó en vivo sin fallas. <span class="nw">También armé la</span> preinscripción para sumarse al Sindicato y publiqué el código <span class="nw">para otras cooperativas.</span></p></div>
           </div>
         </details>
       </div>
@@ -655,34 +666,26 @@ a.correo { color: var(--tinta); text-decoration: none; }
       </figure>
       <div class="relato">
         <p class="logro">El equipo ya encuentra los 106 ejercicios <span class="nw m">que el buscador no mostraba</span></p>
-        <p class="contexto">El buscador de sus planillas había dejado de encontrar los últimos ejercicios. <span class="nw">Lo arreglé con</span> una sola fórmula, sin tocar <span class="nw">lo que ya funcionaba</span></p>
+        <p class="contexto">El buscador de sus planillas había dejado de encontrar los últimos ejercicios. <span class="nw">Fue el primer</span> arreglo: <span class="nw">ahora diseñamos juntos</span> un sistema a <span class="nw">la medida del gimnasio</span></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>El gimnasio planifica los entrenamientos en planillas de Google desde 2017: <span class="nw">113 deportistas activos</span> y un catálogo de más de mil ejercicios. <span class="nw">Cada ejercicio nuevo</span> nacía <span class="nw">invisible para el buscador.</span></p></div>
-            <div class="tramo"><h3>Lo que hice</h3><p>Además del arreglo, cada sistema de entrenamiento pasó a tener su propio catálogo, con machetes para el equipo y un respaldo automático. <span class="nw">Ahora pensamos juntos</span> <span class="nw">el sistema que viene.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>Destrabé el buscador y ordené el catálogo de cada sistema de entrenamiento, con un <span class="nw">respaldo automático.</span></p></div>
           </div>
         </details>
       </div>
     </div>
     <details class="mas mas--ancho">
-      <summary>El problema de fondo y cómo lo pensamos</summary>
+      <summary>El sistema que estamos diseñando</summary>
       <div class="mas-cuerpo">
         <div class="fondo">
           <div class="relato">
-            <p>Detrás hay 129 plantillas repartidas en cinco sistemas de entrenamiento. <span class="nw">Cada mes, a</span> cada deportista se le copia una: <span class="nw">unas 110 copias</span> por mes y más <span class="nw">de 7.000 desde 2019.</span></p>
-            <p>Cada copia le pide permiso a Google para leer el catálogo. <span class="nw">Google le da</span> a cada fuente 600 lugares: <span class="nw">a ese ritmo,</span> una se llena en <span class="nw">unos cinco meses y medio.</span></p>
+            <p>Un sistema integrado y hecho a la medida del gimnasio: <span class="nw">la planificación, cada</span> deportista, el equipo y los números en un mismo lugar. <span class="nw">Habla como habla</span> el equipo y deja lo que cada <span class="nw">uno necesita a un clic.</span></p>
+            <p>Se construye por partes, dentro del acompañamiento y en el orden que elige el gimnasio. <span class="nw">Las planillas siguen</span> andando mientras tanto <span class="nw">y todo queda a su nombre.</span></p>
             <blockquote class="cita"><p>«Es importante que no tenga límite, <span class="nw">porque esto es muy creativo»</span></p><cite>El dueño, en la primera charla</cite></blockquote>
           </div>
           <div class="graficos">
-            <figure class="grafico">
-              <p class="grafico-t">Una fuente <span class="nw">del catálogo: 600 lugares</span></p>
-              <div class="medidor" role="img" aria-label="Con unas 110 copias por mes, los 600 lugares de una fuente se llenan en unos cinco meses y medio">
-                <span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span style="--w: 18.33%"></span><span class="medidor-resto" style="--w: 8.35%"></span>
-              </div>
-              <div class="medidor-ejes" aria-hidden="true"><span>mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="lleno">lleno</span></div>
-              <figcaption>Una cuenta sobre el ritmo <span class="nw">medido de copias por mes</span></figcaption>
-            </figure>
             <figure class="grafico">
               <p class="grafico-t"><span class="nw">Planes que arma el dueño</span></p>
               <div class="barras" role="img" aria-label="Planes armados por el dueño: 100 % hasta 2022, 66 % en 2024 y 46 % desde 2025">
@@ -696,19 +699,15 @@ a.correo { color: var(--tinta); text-decoration: none; }
         </div>
 
         <div class="resolver">
-          <h3 class="trastienda-t">Cómo lo pensamos resolver</h3>
           <p class="lema">Ocho años de método no se reemplazan. <span class="nw">Se les saca el techo.</span></p>
+          <h3 class="trastienda-t">Lo que reúne</h3>
           <ul class="principios">
-            <li><strong>El número de cada ejercicio no se toca</strong><span>Está grabado en <span class="nw m">ocho años de videos</span></span></li>
-            <li><strong>Lo que funciona se queda</strong><span>Las planillas siguen andando mientras <span class="nw m">se construye lo nuevo</span></span></li>
-            <li><strong>Las palabras son las del gimnasio</strong><span>El sistema <span class="nw m">habla como habla el equipo</span></span></li>
-            <li><strong>De a pasos chicos</strong><span>Cada paso se prueba con el trabajo <span class="nw m">real antes del siguiente</span></span></li>
-            <li><strong>Todo a nombre del gimnasio</strong><span>Las cuentas y <span class="nw m">los datos son suyos</span></span></li>
+            <li><strong>Planificar sin trabas</strong><span>Las plantillas a un clic y a la vista lo que <span class="nw m">ya hizo cada deportista</span></span></li>
+            <li><strong>La ficha de cada deportista</strong><span>Su recorrido en el gimnasio, <span class="nw m">en un solo lugar</span></span></li>
+            <li><strong>Los números a la vista</strong><span>Tableros con los grupos, los ejercicios que se usan <span class="nw m">y lo que se repite</span></span></li>
+            <li><strong>Cada uno con su acceso</strong><span>El dueño, el equipo y la administración, <span class="nw m">con sus pantallas</span></span></li>
+            <li><strong>Los deportistas, conectados</strong><span>Su plan y su progreso a mano: el vínculo no termina <span class="nw m">en la hoja impresa</span></span></li>
           </ul>
-          <div class="probado">
-            <p class="probado-n">2.229 de 2.229</p>
-            <p>Antes de proponer un cambio, lo probé contra el buscador de hoy: <span class="nw">dio los mismos</span> ejercicios, en el mismo orden, <span class="nw">en las 2.229 búsquedas</span></p>
-          </div>
         </div>
       </div>
     </details>
@@ -765,7 +764,11 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <div class="pantalla pantalla--compu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>ladomarca.pages.dev</span></div>
           <div class="pantalla-video">
-            <video src="media/v-domarca.mp4" data-poster="media/v-domarca.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque"></video>
+            <video data-poster="media/v-domarca.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque">
+              <source src="media/v-domarca.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+              <source src="media/v-domarca.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L120.90"'>
+              <source src="media/v-domarca.mp4" type="video/mp4">
+            </video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
             <button class="agrandar" type="button" aria-label="Ver el video en grande"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
           </div>
@@ -773,7 +776,11 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <div class="pantalla pantalla--celu">
           <div class="pantalla-barra"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1" fill="none" stroke="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor"/></svg><span>ladomarca.pages.dev</span></div>
           <div class="pantalla-video">
-            <video src="media/v-domarca-34.mp4" data-poster="media/v-domarca-34.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque"></video>
+            <video data-poster="media/v-domarca-34.jpg" muted loop playsinline preload="none" aria-label="Video: la web de La Domarca, bajando por las capas del bosque">
+              <source src="media/v-domarca-34.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+              <source src="media/v-domarca-34.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L93.90"'>
+              <source src="media/v-domarca-34.mp4" type="video/mp4">
+            </video>
             <button class="pausa" type="button" data-estado="pausa" aria-label="Reproducir video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
           </div>
         </div>
@@ -781,12 +788,12 @@ a.correo { color: var(--tinta); text-decoration: none; }
       </figure>
       <div class="relato">
         <p class="logro">La comunidad tiene <span class="nw m">su web,</span> <span class="nw m">del dosel a las raíces</span></p>
-        <p class="contexto">Soy parte de la comunidad: <span class="nw">cinco hectáreas a</span> orillas del Arroyo Rodríguez donde vecinos, productores y artistas regeneran <span class="nw">el suelo y cuidan el agua</span></p>
+        <p class="contexto">Soy parte de la comunidad: <span class="nw">cinco hectáreas a</span> orillas del Arroyo Rodríguez. <span class="nw">Registramos lo que</span> hacemos para que sirva de ejemplo de regeneración y de trabajo <span class="nw">comunitario en la región</span></p>
         <p class="enlaces"><a href="https://ladomarca.pages.dev" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
-            <div class="tramo"><h3>Lo que hice</h3><p>La web, las actas de asamblea escritas desde la grabación, el Drive compartido y un informe de bombeo solar. <span class="nw">Lo próximo es</span> una <span class="nw">web para recibir aportes.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p>La web y ese registro. <span class="nw">Los proyectos de</span> agua, energía, arroyo y agroforesta tienen su informe. <span class="nw">Las actas de</span> asamblea se escriben desde la grabación y todo queda en un Drive ordenado. <span class="nw">Así también conocemos</span> fondos y nos presentamos a convocatorias. <span class="nw">Lo próximo es</span> una <span class="nw">web para recibir aportes.</span></p></div>
           </div>
         </details>
       </div>
