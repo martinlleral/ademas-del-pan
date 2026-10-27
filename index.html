@@ -230,7 +230,50 @@ figcaption { font-size: 14.5px; color: var(--gris); line-height: 1.45; }
 .pieza h3 { font-size: 18px; font-weight: 700; }
 .pieza p { font-size: 15.5px; color: var(--gris); }
 .pieza a { font-size: 15.5px; display: inline-flex; min-height: 44px; align-items: center; }
-.sin-pantalla { margin-top: 18px; padding: 18px 20px; border: 1px dashed var(--linea-2); border-radius: 10px; max-width: 46em; font-size: 16px; }
+/* Lo que anda sin pantalla (v9): la línea de visibilidad, punteada. Arriba lo que se ve, abajo lo que anda por
+   detrás; las tarjetas van punteadas como la línea, y los puntos dicen en qué organizaciones anda cada una */
+/* El punteado de «sin pantalla», un poco más marcado que --linea-2 (en oscuro, --linea-2 casi no se ve) */
+.hoja { --punteado: var(--linea-2); --punteado: color-mix(in srgb, var(--gris) 55%, var(--papel)); }
+.detras { border-top: 1px solid var(--linea); padding-block: clamp(44px, 7vw, 84px); display: grid; gap: 14px; }
+.detras > p { max-width: 42em; color: var(--gris); }
+.vis { margin-top: 14px; display: grid; gap: 10px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
+.vis p:first-child { padding-bottom: 10px; border-bottom: 1.5px dashed var(--punteado); }
+.verbos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.verbos li { display: grid; gap: 6px; align-content: start; padding: 14px 16px 16px; border: 1px dashed var(--punteado); border-radius: 10px; }
+.verbo-cab { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.verbos h3 { font-size: 19px; font-weight: 750; letter-spacing: -.01em; }
+.donde { display: inline-flex; gap: 4px; }
+.verbos p { font-size: 15px; line-height: 1.45; color: var(--gris); }
+.detras > .detras-cierre { margin-top: 10px; font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 650; line-height: 1.35; color: var(--tinta); max-width: 30em; text-wrap: balance; }
+@media (max-width: 860px) { .verbos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .verbos { grid-template-columns: minmax(0, 1fr); gap: 10px; } .verbos li { padding: 12px 14px 14px; } }
+/* Cómo sostengo el orden (v9): el método en un esquema. En la compu va de izquierda a derecha: el arranque → la
+   lista (oscura, como el centro del mapa) → los ritmos. En el celular, de arriba abajo, con las flechas verticales */
+.metodo { border-top: 1px solid var(--linea); padding-block: clamp(44px, 7vw, 84px); display: grid; gap: 14px; }
+.metodo > p { max-width: 42em; color: var(--gris); }
+.esquema { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1fr) 128px minmax(0, 1fr) 150px minmax(0, 1.4fr); align-items: center; }
+.etapa { display: grid; gap: 6px; padding: 14px 16px 16px; border: 1px solid var(--linea); border-radius: 10px; background: var(--papel); }
+.etapa h3, .ritmos h3 { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+.etapa p, .ritmos p { font-size: 15px; line-height: 1.45; }
+.lista { display: grid; gap: 6px; padding: 20px 20px 22px; border-radius: 10px; background: var(--tinta); color: var(--papel); }
+.lista h3 { font-size: 19px; font-weight: 750; letter-spacing: -.01em; line-height: 1.2; }
+.lista p { font-size: 14.5px; line-height: 1.45; opacity: .82; }
+.paso { display: grid; justify-items: center; gap: 6px; padding-inline: 10px; font-family: var(--f-mono); font-size: 12px; line-height: 1.35; color: var(--gris); text-align: center; }
+.paso svg { color: var(--linea-2); flex: none; }
+.paso .v { display: none; }
+.ritmos { list-style: none; margin: 0; padding: 0; display: grid; border-left: 1.5px solid var(--linea-2); }
+.ritmos li { position: relative; display: grid; gap: 4px; padding: 10px 0 10px 18px; }
+.ritmos li::before { content: ""; position: absolute; left: -5px; top: 15px; width: 8px; height: 8px; border-radius: 50%; background: var(--linea-2); }
+@media (max-width: 860px) {
+  .esquema { grid-template-columns: minmax(0, 1fr); max-width: 520px; }
+  .paso { grid-template-columns: auto minmax(0, 1fr); justify-items: start; align-items: center; gap: 12px; min-height: 56px; padding: 4px 0 4px 18px; text-align: left; }
+  .paso .h { display: none; }
+  .paso .v { display: block; align-self: stretch; height: auto; }
+  .ritmos { margin-left: 22px; }
+  .paso .nwc { white-space: nowrap; } /* en la compu el rótulo corta dentro de su columna */
+}
+/* Como .nw: por debajo de 340 px no entra (a 277 pasaba 3 px el borde) */
+@media (max-width: 340px) { .paso .nwc { white-space: normal; } }
 
 /* Cierre */
 .cierre { border-top: 1px solid var(--linea); padding-block: clamp(48px, 8vw, 96px) 40px; display: grid; gap: 18px; }
@@ -391,7 +434,7 @@ a.correo { color: var(--tinta); text-decoration: none; }
   <section class="mapa" id="mapa" aria-labelledby="mapa-t">
     <h2 class="titulo-seccion" id="mapa-t">Cómo se conecta todo</h2>
     <p>Empezó en la panadería. <span class="nw">Lo que ordené</span> en Mar de Pan se volvió un método y de ahí pasó <span class="nw">a otras organizaciones</span></p>
-    <p>Ordenar viene de antes: <span class="nw">de chico desarmaba</span> programas para ver cómo andaban y en <span class="nw">La Caipo,</span> el centro cultural que teníamos, ya llevaba la caja y el stock <span class="nw">en planillas</span></p>
+    <p>Ordenar viene de antes: <span class="nw">de chico desarmaba</span> programas para ver cómo andaban y en 2019, en <span class="nw">La Caipo,</span> el centro cultural que teníamos, ya llevaba la caja y el stock <span class="nw">en planillas.</span> <span class="nw">La planilla de ventas</span> que hoy leen mis programas nació ese año, como <span class="nw">una calculadora de pan</span></p>
 
     <div class="red" id="red">
       <svg class="red-hilos" id="hilos" aria-hidden="true"></svg>
@@ -887,6 +930,52 @@ a.correo { color: var(--tinta); text-decoration: none; }
     </div>
   </section>
 
+  <!-- Lo que anda sin pantalla -->
+  <section class="detras" id="sin-pantalla" aria-labelledby="det-t">
+    <h2 class="titulo-seccion" id="det-t">Lo que anda sin pantalla</h2>
+    <p>En Mar de Pan, siete de las nueve piezas que armé no tienen pantalla. <span class="nw">Corren por detrás,</span> solas o con una orden, y hacen lo que antes dependía de que <span class="nw">alguien se acordara</span></p>
+    <div class="vis">
+      <p>Lo que se ve: <span class="nw">las webs y los paneles</span></p>
+      <p>Lo que anda por detrás</p>
+    </div>
+    <ul class="verbos">
+      <li>
+        <div class="verbo-cab"><h3>Cuida</h3><span class="donde" role="img" aria-label="En el CMG y en Tognoli"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span></span></div>
+        <p>Copia los datos del policonsultorio y del gimnasio. <span class="nw">En el gimnasio</span> también prueba que cada copia se&nbsp;pueda&nbsp;recuperar</p>
+      </li>
+      <li>
+        <div class="verbo-cab"><h3>Avisa</h3><span class="donde" role="img" aria-label="En el CMG y en Mar de Pan"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
+        <p>Cuando un registro sale de su frecuencia normal, salta un aviso: turnos web que dejan de entrar, una copia que no llega a tiempo o un cliente que tarda más que de costumbre en <span class="nw">volver a pedir</span></p>
+      </li>
+      <li>
+        <div class="verbo-cab"><h3>Planifica</h3><span class="donde" role="img" aria-label="En Mar de Pan"><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
+        <p>Sigue los pedidos reales y calcula las recetas sin pasarse de lo que entra en cada amasadora. <span class="nw">Con los mismos pedidos</span> arma la hoja del taller y <span class="nw">la ruta del reparto</span></p>
+      </li>
+      <li>
+        <div class="verbo-cab"><h3>Escucha</h3><span class="donde" role="img" aria-label="En Mar de Pan, el SAB, el CMG, Tognoli y La Domarca"><span class="punto" style="--c: var(--c-mdp)"></span><span class="punto" style="--c: var(--c-sab)"></span><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span><span class="punto" style="--c: var(--c-dom)"></span></span></div>
+        <p>Pasa a texto reuniones y notas de voz, con quién dijo qué y sin que el audio salga de la compu: <span class="nw">ya van más de 200.</span> <span class="nw">De ahí salen las actas</span></p>
+      </li>
+    </ul>
+    <p class="detras-cierre">Es la parte del método que no se ve: la que hace que el trabajo no dependa de <span class="nw">la memoria de una sola persona</span></p>
+  </section>
+
+  <!-- Cómo sostengo el orden -->
+  <section class="metodo" id="metodo" aria-labelledby="met-t">
+    <h2 class="titulo-seccion" id="met-t">Cómo sostengo el orden</h2>
+    <p>El método lo uso también para mí: <span class="nw">desde junio, mi propio día</span> se arma así. <span class="nw">Todo sale de una</span> sola lista de pendientes y unos pocos ritmos <span class="nw">la mantienen limpia</span></p>
+    <div class="esquema">
+      <div class="etapa"><h3>Al arrancar un proyecto</h3><p>Primero qué hace falta, después cómo. <span class="nw">Queda en un documento</span> madre, con las sesiones de trabajo <span class="nw">en orden</span></p></div>
+      <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span><span class="nw">suma a la lista</span></span></p>
+      <div class="lista"><h3>Una sola lista de pendientes</h3><p>Siempre actualizada, con áreas, estimaciones, recursos a mano, <span class="nw">prioridad y fecha</span></p></div>
+      <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>tres amasadoras: <span class="nwc">no más de tres frentes a la vez</span></span></p>
+      <ol class="ritmos">
+        <li><h3>Cada día</h3><p>El plan con horarios sale de la lista y al cerrar queda <span class="nw">anotado qué se hizo</span></p></li>
+        <li><h3>Cada semana</h3><p>El marco de trabajo, las rutinas y lo que esa semana trae <span class="nw">de distinto</span></p></li>
+        <li><h3>Cada mes</h3><p>Un reporte de lo que creció y la actualización del mapa <span class="nw">de todos los proyectos</span></p></li>
+      </ol>
+    </div>
+  </section>
+
   <section class="cierre" id="contacto" aria-label="Contacto">
     <p class="grande">Si algo de esto le sirve <span class="nw">a tu organización,</span> <span class="nw">lo charlamos</span></p>
     <p class="nota">El primer encuentro es para conocer <span class="nw">tu organización y no se cobra</span></p>
@@ -929,7 +1018,6 @@ a.correo { color: var(--tinta); text-decoration: none; }
         <a href="https://martinlleral.github.io/lamp-architect/" target="_blank" rel="noopener">Probalo ↗</a>
       </article>
     </div>
-    <p class="sin-pantalla">Y una sin pantalla: <span class="nw m"><strong>Desgrabar</strong> pasa una</span> reunión a texto, con quién dijo qué, sin que el audio salga de la compu. <span class="nw m">De ahí salen las actas</span></p>
   </section>
 
 
