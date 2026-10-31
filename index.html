@@ -405,6 +405,17 @@ a.correo { color: var(--tinta); text-decoration: none; }
 .portada .hecho { margin-top: -14px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; color: var(--gris); text-wrap: balance; }
 /* El primer encuentro, debajo de la frase del cierre */
 .cierre p.nota { margin-top: -8px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; color: var(--gris); max-width: 34em; }
+/* La segunda capa (v10): lo que se lee si interesa. Cada sección queda como una franja con su título, cerrada */
+.capa { padding-block: 0; gap: 0; }
+.capa > .mas { border-top: 0; }
+.capa > .mas > summary { padding-block: 16px; }
+.capa > .mas > summary h2 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 750; letter-spacing: -.02em; line-height: 1.15; }
+.capa-cuerpo { display: grid; gap: 14px; padding: 4px 0 clamp(40px, 6vw, 72px); }
+.capa-cuerpo > p { max-width: 42em; color: var(--gris); }
+.capa-cuerpo > .detras-cierre { margin-top: 10px; font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 650; line-height: 1.35; color: var(--tinta); max-width: 30em; text-wrap: balance; }
+/* Las raíces, en el mapa */
+.mapa > .raices { max-width: 42em; }
+.raices .mas-cuerpo p { color: var(--gris); }
 @media (prefers-reduced-motion: reduce) {
   .puntos span.n, .mas > summary::before { transition: none; }
   .flota { transition: none; }
@@ -434,8 +445,13 @@ a.correo { color: var(--tinta); text-decoration: none; }
   <section class="mapa" id="mapa" aria-labelledby="mapa-t">
     <h2 class="titulo-seccion" id="mapa-t">Cómo se conecta todo</h2>
     <p>Empezó en la panadería. <span class="nw">Lo que ordené</span> en Mar de Pan se volvió un método y de ahí pasó <span class="nw">a otras organizaciones</span></p>
-    <p>Ordenar viene de antes: <span class="nw">de chico desarmaba</span> programas para ver cómo andaban y en 2019, en <span class="nw">La Caipo,</span> el centro cultural que teníamos, ya llevaba la caja y el stock <span class="nw">en planillas.</span> <span class="nw">La planilla de ventas</span> que hoy leen mis programas nació ese año como <span class="nw">una calculadora de pan</span></p>
     <p>Soy antropólogo: antes de construir escucho al equipo y <span class="nw">miro cómo trabaja</span></p>
+    <details class="mas raices">
+      <summary>Ordenar viene de antes</summary>
+      <div class="mas-cuerpo">
+        <p><span class="nw">De chico desarmaba</span> programas para ver cómo andaban y en 2019, en <span class="nw">La Caipo,</span> el centro cultural que teníamos, ya llevaba la caja y el stock <span class="nw">en planillas.</span> <span class="nw">La planilla de ventas</span> que hoy leen mis programas nació ese año como <span class="nw">una calculadora de pan</span></p>
+      </div>
+    </details>
 
     <div class="red" id="red">
       <svg class="red-hilos" id="hilos" aria-hidden="true"></svg>
@@ -535,26 +551,26 @@ a.correo { color: var(--tinta); text-decoration: none; }
       <div class="relato">
         <p class="logro">Mi oficio ahora es <span class="nw m">un método</span> <span class="nw m">que lleva el equipo</span></p>
         <p class="contexto">Antes los pedidos llegaban por WhatsApp y para saber quién había pagado había que abrir los chats uno por uno. <span class="nw">La web ya</span> está lista para que <span class="nw">cada cliente arme el suyo</span></p>
-        <div class="sumado">
-          <p class="sumado-t">Lo que armé</p>
-          <ul>
-            <li>Web de pedidos</li>
-            <li>Panel del equipo</li>
-            <li>Hoja de armado</li>
-            <li>Ruta de reparto</li>
-            <li>Recetas del día</li>
-            <li>Facturas</li>
-            <li>Control de pagos</li>
-            <li>Cierre semanal</li>
-            <li>Clientes por segmento</li>
-          </ul>
-        </div>
         <p class="enlaces"><a href="https://mardepan.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>Los pedidos se copiaban a mano en una planilla y <span class="nw">casi todo pasaba por mí.</span></p></div>
-            <div class="tramo"><h3>Lo que hice</h3><p><span class="nw">Los pagos los</span> controla una herramienta que busca cada comprobante y lo cruza con el <span class="nw">banco: ya van 36 repartos.</span> <span class="nw">Y lo que sabía</span> lo escribí en una bitácora de cada corrida de masa madre y en notas de planificación, para que lo lleven otras manos: <span class="nw">el 30 de septiembre</span> el taller <span class="nw">trabajó sin mí.</span></p></div>
+            <div class="tramo"><h3>Lo que hice</h3><p><span class="nw">Los pagos los</span> controla una herramienta que busca cada comprobante y lo cruza con el <span class="nw">banco: ya van 37 repartos.</span> <span class="nw">Y lo que sabía</span> lo escribí en una bitácora de cada corrida de masa madre y en notas de planificación, para que lo lleven otras manos: <span class="nw">el 30 de septiembre</span> el taller <span class="nw">trabajó sin mí.</span></p></div>
+            <div class="sumado">
+              <p class="sumado-t">Lo que armé</p>
+              <ul>
+                <li>Web de pedidos</li>
+                <li>Panel del equipo</li>
+                <li>Hoja de armado</li>
+                <li>Ruta de reparto</li>
+                <li>Recetas del día</li>
+                <li>Facturas</li>
+                <li>Control de pagos</li>
+                <li>Cierre semanal</li>
+                <li>Clientes por segmento</li>
+              </ul>
+            </div>
           </div>
         </details>
       </div>
@@ -610,28 +626,28 @@ a.correo { color: var(--tinta); text-decoration: none; }
       <div class="relato">
         <p class="logro">El Sindicato vende, mide y controla cada fecha <span class="nw m">desde su propio sistema</span></p>
         <p class="contexto">Primero, orden para el grupo: <span class="nw">reuniones con estructura</span> y actas desde la grabación. <span class="nw">Después, la ticketera</span> creció con <span class="nw">lo que pedía cada fecha</span></p>
-        <div class="sumado">
-          <p class="sumado-t">Lo que le sumé</p>
-          <ul>
-            <li>Cupones de descuento</li>
-            <li>Tandas con precio y cupo</li>
-            <li>Entrada a la gorra</li>
-            <li>Menú con la entrada</li>
-            <li>Link de venta</li>
-            <li>Tableros de ventas y asistencia</li>
-            <li>Link del reporte</li>
-            <li>Compradores en planilla</li>
-            <li>Link de validación</li>
-            <li>Devoluciones</li>
-            <li>Preinscripción al Sindicato</li>
-          </ul>
-        </div>
         <p class="enlaces"><a href="https://sindicatoargentinodeboleros.com.ar" target="_blank" rel="noopener">Ver la web ↗</a><a href="https://github.com/martinlleral/sab-landing" target="_blank" rel="noopener">Ver el código ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>Las decisiones se perdían en el grupo de WhatsApp y las reuniones se estiraban. <span class="nw">La base de</span> la ticketera la había construido otro desarrollador, de forma voluntaria: <span class="nw">la compra, el</span> QR de cada entrada y el panel. <span class="nw">Faltaba asegurarla y darle una casa propia.</span></p></div>
             <div class="tramo"><h3>Lo que hice</h3><p>La aseguré y la pasé a cuentas del Sindicato. <span class="nw">Los links se</span> comparten sin dar acceso al panel: <span class="nw">el del reporte</span> muestra sólo números y el de la puerta valida las entradas desde cualquier celular. <span class="nw">El validador se</span> usó en vivo sin fallas. <span class="nw">También armé la</span> preinscripción para sumarse al Sindicato y publiqué el código <span class="nw">para otras cooperativas.</span></p></div>
+            <div class="sumado">
+              <p class="sumado-t">Lo que le sumé</p>
+              <ul>
+                <li>Cupones de descuento</li>
+                <li>Tandas con precio y cupo</li>
+                <li>Entrada a la gorra</li>
+                <li>Menú con la entrada</li>
+                <li>Link de venta</li>
+                <li>Tableros de ventas y asistencia</li>
+                <li>Link del reporte</li>
+                <li>Compradores en planilla</li>
+                <li>Link de validación</li>
+                <li>Devoluciones</li>
+                <li>Preinscripción al Sindicato</li>
+              </ul>
+            </div>
           </div>
         </details>
       </div>
@@ -701,25 +717,25 @@ a.correo { color: var(--tinta); text-decoration: none; }
       <div class="relato">
         <p class="logro">El policonsultorio pasó <span class="nw m">a un sistema</span> <span class="nw m">a su medida,</span> <span class="nw m">sin cortar</span> <span class="nw m">la atención</span></p>
         <p class="contexto">El cálculo de lo que cobra cada profesional dependía de una sola persona; ahora lo hace <span class="nw">el sistema cada semana</span></p>
-        <div class="sumado">
-          <p class="sumado-t">Lo que le sumé</p>
-          <ul>
-            <li>Turnos por la web</li>
-            <li>Buscador de profesionales</li>
-            <li>Tablero de recepción</li>
-            <li>Cuentas de profesionales</li>
-            <li>Historia clínica</li>
-            <li>Copia legal de la historia</li>
-            <li>Historias migradas</li>
-            <li>Confirmación de turnos</li>
-          </ul>
-        </div>
         <p class="enlaces"><a href="https://cmgonnet.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>La web ofrecía reservar turno, pero ninguno de los 87 profesionales estaba habilitado y los turnos <span class="nw">se pedían por WhatsApp.</span></p></div>
             <div class="tramo"><h3>Lo que hice</h3><p>Una web con un buscador que entiende aunque escribas mal y turnos con la disponibilidad real. <span class="nw">Los datos de</span> salud van cifrados y cada persona ve sólo lo que su tarea necesita. <span class="nw">El sistema anterior</span> se apagó en septiembre, <span class="nw">después de cambiar de a partes.</span></p></div>
+            <div class="sumado">
+              <p class="sumado-t">Lo que le sumé</p>
+              <ul>
+                <li>Turnos por la web</li>
+                <li>Buscador de profesionales</li>
+                <li>Tablero de recepción</li>
+                <li>Cuentas de profesionales</li>
+                <li>Historia clínica</li>
+                <li>Copia legal de la historia</li>
+                <li>Historias migradas</li>
+                <li>Confirmación de turnos</li>
+              </ul>
+            </div>
           </div>
         </details>
       </div>
@@ -848,24 +864,24 @@ a.correo { color: var(--tinta); text-decoration: none; }
       <div class="relato">
         <p class="logro">Por primera vez Sencia tiene una lista <span class="nw m">de contactos propia</span></p>
         <p class="contexto">Su web suma el Mapa SENCIA: <span class="nw">16 afirmaciones, escritas</span> por ellas, que le devuelven a cada <span class="nw">mujer en qué momento está</span></p>
-        <div class="sumado">
-          <p class="sumado-t">Lo que le sumé</p>
-          <ul>
-            <li>Web en su dominio</li>
-            <li>Correos de bienvenida</li>
-            <li>Correo propio</li>
-            <li>Páginas de encuentros</li>
-            <li>Botón de WhatsApp</li>
-            <li>Contador de clics</li>
-            <li>Origen de las visitas</li>
-          </ul>
-        </div>
         <p class="enlaces"><a href="https://senciaholistica.com.ar" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Antes</h3><p>Sencia tenía comunidad en Instagram, Facebook y WhatsApp, pero ninguna lista <span class="nw">de contactos propia.</span></p></div>
             <div class="tramo"><h3>Lo que hice</h3><p><span class="nw">Quien quiere el</span> resultado del Mapa deja el correo y entra a una lista que le escribe sola los primeros días. <span class="nw">El dominio, el</span> correo, la lista y las cuentas están a nombre de Sencia. <span class="nw">La web también</span> tiene páginas para sus encuentros: <span class="nw">la primera fue UMBRAL.</span></p></div>
+            <div class="sumado">
+              <p class="sumado-t">Lo que le sumé</p>
+              <ul>
+                <li>Web en su dominio</li>
+                <li>Correos de bienvenida</li>
+                <li>Correo propio</li>
+                <li>Páginas de encuentros</li>
+                <li>Botón de WhatsApp</li>
+                <li>Contador de clics</li>
+                <li>Origen de las visitas</li>
+              </ul>
+            </div>
           </div>
         </details>
       </div>
@@ -908,73 +924,82 @@ a.correo { color: var(--tinta); text-decoration: none; }
       <div class="relato">
         <p class="logro">La comunidad tiene <span class="nw m">su web,</span> <span class="nw m">del dosel a las raíces</span></p>
         <p class="contexto">Soy parte de la comunidad: <span class="nw">cinco hectáreas a</span> orillas del Arroyo Rodríguez. <span class="nw">Registramos lo que</span> hacemos para que sirva de ejemplo de regeneración y de trabajo <span class="nw">comunitario en la región</span></p>
-        <div class="sumado">
-          <p class="sumado-t">Lo que aporto</p>
-          <ul>
-            <li>Informe del bombeo solar</li>
-            <li>Dossier del vermifiltro</li>
-            <li>Estudio del arroyo</li>
-            <li>Lecturas de la agroforesta</li>
-            <li>Actas desde la grabación</li>
-            <li>Drive ordenado</li>
-            <li>Flyers de encuentros</li>
-          </ul>
-        </div>
         <p class="enlaces"><a href="https://ladomarca.pages.dev" target="_blank" rel="noopener">Ver la web ↗</a></p>
         <details class="mas">
           <summary>Cómo lo hice</summary>
           <div class="mas-cuerpo">
             <div class="tramo"><h3>Lo que hice</h3><p><span class="nw">Con ese registro</span> también conocemos fondos y nos presentamos a convocatorias. <span class="nw">Lo próximo es</span> una <span class="nw">web para recibir aportes.</span></p></div>
+            <div class="sumado">
+              <p class="sumado-t">Lo que aporto</p>
+              <ul>
+                <li>Informe del bombeo solar</li>
+                <li>Dossier del vermifiltro</li>
+                <li>Estudio del arroyo</li>
+                <li>Lecturas de la agroforesta</li>
+                <li>Actas desde la grabación</li>
+                <li>Drive ordenado</li>
+                <li>Flyers de encuentros</li>
+              </ul>
+            </div>
           </div>
         </details>
       </div>
     </div>
   </section>
 
+
   <!-- Lo que anda sin pantalla -->
-  <section class="detras" id="sin-pantalla" aria-labelledby="det-t">
-    <h2 class="titulo-seccion" id="det-t">Lo que anda sin pantalla</h2>
-    <p>En Mar de Pan, siete de las nueve piezas que armé no tienen pantalla. <span class="nw">Corren por detrás,</span> solas o con una orden, y hacen <span class="nw">lo que antes se hacía a mano</span></p>
-    <div class="vis">
-      <p>Lo que se ve: <span class="nw">las webs y los paneles</span></p>
-      <p>Lo que anda por detrás</p>
-    </div>
-    <ul class="verbos">
-      <li>
-        <div class="verbo-cab"><h3>Cuida</h3><span class="donde" role="img" aria-label="En el CMG y en Tognoli"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span></span></div>
-        <p>Copia los datos del policonsultorio y del gimnasio. <span class="nw">En el gimnasio</span> también prueba que cada copia se&nbsp;pueda&nbsp;recuperar</p>
-      </li>
-      <li>
-        <div class="verbo-cab"><h3>Avisa</h3><span class="donde" role="img" aria-label="En el CMG y en Mar de Pan"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
-        <p>Cuando un registro sale de su frecuencia normal, salta un aviso: turnos web que dejan de entrar, una copia que no llega a tiempo o un cliente que tarda más que de costumbre en <span class="nw">volver a pedir</span></p>
-      </li>
-      <li>
-        <div class="verbo-cab"><h3>Planifica</h3><span class="donde" role="img" aria-label="En Mar de Pan"><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
-        <p>Sigue los pedidos reales y calcula las recetas sin pasarse de lo que entra en cada amasadora. <span class="nw">Con los mismos pedidos</span> arma la hoja del taller y <span class="nw">la ruta del reparto</span></p>
-      </li>
-      <li>
-        <div class="verbo-cab"><h3>Escucha</h3><span class="donde" role="img" aria-label="En Mar de Pan, el SAB, el CMG, Tognoli y La Domarca"><span class="punto" style="--c: var(--c-mdp)"></span><span class="punto" style="--c: var(--c-sab)"></span><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span><span class="punto" style="--c: var(--c-dom)"></span></span></div>
-        <p>Pasa a texto reuniones y notas de voz, con quién dijo qué y sin que el audio salga de la compu: <span class="nw">ya van más de 200.</span> <span class="nw">De ahí salen las actas</span></p>
-      </li>
-    </ul>
-    <p class="detras-cierre">Es la parte del método que no se ve: la que hace que el trabajo no dependa de <span class="nw">la memoria de una sola persona</span></p>
+  <section class="detras capa" id="sin-pantalla" aria-label="Lo que anda sin pantalla">
+    <details class="mas">
+      <summary><h2>Lo que anda sin pantalla</h2></summary>
+      <div class="capa-cuerpo">
+        <p>En Mar de Pan, siete de las nueve piezas que armé no tienen pantalla. <span class="nw">Corren por detrás,</span> solas o con una orden, y hacen <span class="nw">lo que antes se hacía a mano</span></p>
+        <div class="vis">
+          <p>Lo que se ve: <span class="nw">las webs y los paneles</span></p>
+          <p>Lo que anda por detrás</p>
+        </div>
+        <ul class="verbos">
+          <li>
+            <div class="verbo-cab"><h3>Cuida</h3><span class="donde" role="img" aria-label="En el CMG y en Tognoli"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span></span></div>
+            <p>Copia los datos del policonsultorio y del gimnasio. <span class="nw">En el gimnasio</span> también prueba que cada copia se&nbsp;pueda&nbsp;recuperar</p>
+          </li>
+          <li>
+            <div class="verbo-cab"><h3>Avisa</h3><span class="donde" role="img" aria-label="En el CMG y en Mar de Pan"><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
+            <p>Cuando un registro sale de su frecuencia normal, salta un aviso: turnos web que dejan de entrar, una copia que no llega a tiempo o un cliente que tarda más que de costumbre en <span class="nw">volver a pedir</span></p>
+          </li>
+          <li>
+            <div class="verbo-cab"><h3>Planifica</h3><span class="donde" role="img" aria-label="En Mar de Pan"><span class="punto" style="--c: var(--c-mdp)"></span></span></div>
+            <p>Sigue los pedidos reales y calcula las recetas sin pasarse de lo que entra en cada amasadora. <span class="nw">Con los mismos pedidos</span> arma la hoja del taller y <span class="nw">la ruta del reparto</span></p>
+          </li>
+          <li>
+            <div class="verbo-cab"><h3>Escucha</h3><span class="donde" role="img" aria-label="En Mar de Pan, el SAB, el CMG, Tognoli y La Domarca"><span class="punto" style="--c: var(--c-mdp)"></span><span class="punto" style="--c: var(--c-sab)"></span><span class="punto" style="--c: var(--c-cmg)"></span><span class="punto" style="--c: var(--c-tog)"></span><span class="punto" style="--c: var(--c-dom)"></span></span></div>
+            <p>Pasa a texto reuniones y notas de voz, con quién dijo qué y sin que el audio salga de la compu: <span class="nw">ya van más de 200.</span> <span class="nw">De ahí salen las actas</span></p>
+          </li>
+        </ul>
+        <p class="detras-cierre">Es la parte del método que no se ve: la que hace que el trabajo no dependa de <span class="nw">la memoria de una sola persona</span></p>
+      </div>
+    </details>
   </section>
 
   <!-- Cómo sostengo el orden -->
-  <section class="metodo" id="metodo" aria-labelledby="met-t">
-    <h2 class="titulo-seccion" id="met-t">Cómo sostengo el orden</h2>
-    <p>El método lo uso también para mí: <span class="nw">mi propio día</span> se arma así. <span class="nw">Todo sale de una</span> sola lista de pendientes y unos pocos ritmos <span class="nw">la mantienen limpia</span></p>
-    <div class="esquema">
-      <div class="etapa"><h3>Al arrancar un proyecto</h3><p>Primero qué hace falta, después cómo. <span class="nw">Queda en un documento</span> madre con las sesiones de trabajo <span class="nw">en orden</span></p></div>
-      <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span><span class="nw">suma a la lista</span></span></p>
-      <div class="lista"><h3>Una sola lista de pendientes</h3><p>Siempre actualizada, con áreas, estimaciones, recursos a mano, <span class="nw">prioridad y fecha</span></p></div>
-      <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>tres amasadoras: <span class="nwc">no más de tres frentes a la vez</span></span></p>
-      <ol class="ritmos">
-        <li><h3>Cada día</h3><p>El plan con horarios sale de la lista y al cerrar queda <span class="nw">anotado qué se hizo</span></p></li>
-        <li><h3>Cada semana</h3><p>El marco de trabajo, las rutinas y lo que esa semana trae <span class="nw">de distinto</span></p></li>
-        <li><h3>Cada mes</h3><p>Un reporte de lo que creció y la actualización del mapa <span class="nw">de todos los proyectos</span></p></li>
-      </ol>
-    </div>
+  <section class="metodo capa" id="metodo" aria-label="Cómo sostengo el orden">
+    <details class="mas">
+      <summary><h2>Cómo sostengo el orden</h2></summary>
+      <div class="capa-cuerpo">
+        <p>El método lo uso también para mí: <span class="nw">mi propio día</span> se arma así. <span class="nw">Todo sale de una</span> sola lista de pendientes y unos pocos ritmos <span class="nw">la mantienen limpia</span></p>
+        <div class="esquema">
+          <div class="etapa"><h3>Al arrancar un proyecto</h3><p>Primero qué hace falta, después cómo. <span class="nw">Queda en un documento</span> madre con las sesiones de trabajo <span class="nw">en orden</span></p></div>
+          <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span><span class="nw">suma a la lista</span></span></p>
+          <div class="lista"><h3>Una sola lista de pendientes</h3><p>Siempre actualizada, con áreas, estimaciones, recursos a mano, <span class="nw">prioridad y fecha</span></p></div>
+          <p class="paso"><svg class="h" width="80" height="11" viewBox="0 0 80 11" aria-hidden="true"><path d="M0 5.5H78M72 1l6 4.5-6 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><svg class="v" width="11" height="48" viewBox="0 0 11 48" preserveAspectRatio="none" aria-hidden="true"><path d="M5.5 0V46M1 40l4.5 6 4.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>tres amasadoras: <span class="nwc">no más de tres frentes a la vez</span></span></p>
+          <ol class="ritmos">
+            <li><h3>Cada día</h3><p>El plan con horarios sale de la lista y al cerrar queda <span class="nw">anotado qué se hizo</span></p></li>
+            <li><h3>Cada semana</h3><p>El marco de trabajo, las rutinas y lo que esa semana trae <span class="nw">de distinto</span></p></li>
+            <li><h3>Cada mes</h3><p>Un reporte de lo que creció y la actualización del mapa <span class="nw">de todos los proyectos</span></p></li>
+          </ol>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section class="cierre" id="contacto" aria-label="Contacto">
@@ -989,40 +1014,44 @@ a.correo { color: var(--tinta); text-decoration: none; }
   </section>
 
   <!-- Herramientas -->
-  <section class="herramientas" id="herramientas" aria-labelledby="her-t">
-    <h2 class="titulo-seccion" id="her-t">Herramientas sueltas</h2>
-    <p>Algunas salieron de la panadería y otras de la curiosidad. <span class="nw">Casi todas se prueban en el navegador</span></p>
-    <div class="estante">
-      <article class="pieza">
-        <img class="clara" src="media/h-la-cinta.jpg" alt="La Cinta: la curva de la masa madre y la hora del pico" loading="lazy" width="720" height="450">
-        <div><h3>La Cinta</h3><p>Calcula a qué hora la masa madre llega a cada marca del balde, para que <span class="nw">la refresque otra persona</span></p></div>
-        <a href="https://martinlleral.github.io/la-cinta/" target="_blank" rel="noopener">Probala ↗</a>
-      </article>
-      <article class="pieza">
-        <img class="clara" src="media/h-masagochi.jpg" alt="Masagochi: controles de la masa madre y su curva de fermentación" loading="lazy" width="720" height="450">
-        <div><h3>Masagochi</h3><p>Un simulador para entender cómo <span class="nw">fermenta la masa madre</span></p></div>
-        <a href="https://martinlleral.github.io/masagochi/" target="_blank" rel="noopener">Probalo ↗</a>
-      </article>
-      <article class="pieza">
-        <img src="media/h-ogbon.jpg" alt="Ogbon: un ritmo dibujado como círculos de golpes" loading="lazy" width="720" height="450">
-        <div><h3>Ogbon</h3><p>Ritmos de percusión afrobrasileña dibujados <span class="nw">como círculos que suenan</span></p></div>
-        <a href="https://martinlleral.github.io/ogbon/" target="_blank" rel="noopener">Probalo ↗</a>
-      </article>
-      <article class="pieza">
-        <img class="clara centro" src="media/h-finanzas-v6.jpg" alt="Finanzas: el teclado para anotar un ingreso o un gasto" loading="lazy" width="720" height="450">
-        <div><h3>Finanzas</h3><p>Una app para anotar los gastos de la casa en dos toques. <span class="nw">La demo tiene</span> <span class="nw">datos inventados</span></p></div>
-        <a href="https://martinlleral.github.io/finanzas-v6/" target="_blank" rel="noopener">Probala ↗</a>
-      </article>
-      <article class="pieza">
-        <img src="media/h-lamp-architect.jpg" alt="Lamp Architect: una lámpara de hilo en 3D con sus medidas" loading="lazy" width="720" height="450">
-        <div><h3>Lamp Architect</h3><p>Diseña lámparas de hilo en 3D y calcula <span class="nw">cuántos metros</span> <span class="nw">de hilo llevan</span></p></div>
-        <a href="https://martinlleral.github.io/lamp-architect/" target="_blank" rel="noopener">Probalo ↗</a>
-      </article>
-      <article class="pieza">
-        <img class="centro" src="media/h-observatorio.jpg" alt="Observatorio: los proyectos como estrellas, agrupados en cinco constelaciones" loading="lazy" width="720" height="450">
-        <div><h3>Observatorio</h3><p>Un mapa de todos mis proyectos dibujado como un cielo que <span class="nw">se actualiza cada mes.</span> <span class="nw">Va sin los nombres</span> <span class="nw">porque es personal</span></p></div>
-      </article>
-    </div>
+  <section class="herramientas capa" id="herramientas" aria-label="Herramientas sueltas">
+    <details class="mas">
+      <summary><h2>Herramientas sueltas</h2></summary>
+      <div class="capa-cuerpo">
+        <p>Algunas salieron de la panadería y otras de la curiosidad. <span class="nw">Casi todas se prueban en el navegador</span></p>
+        <div class="estante">
+          <article class="pieza">
+            <img class="clara" src="media/h-la-cinta.jpg" alt="La Cinta: la curva de la masa madre y la hora del pico" loading="lazy" width="720" height="450">
+            <div><h3>La Cinta</h3><p>Calcula a qué hora la masa madre llega a cada marca del balde, para que <span class="nw">la refresque otra persona</span></p></div>
+            <a href="https://martinlleral.github.io/la-cinta/" target="_blank" rel="noopener">Probala ↗</a>
+          </article>
+          <article class="pieza">
+            <img class="clara" src="media/h-masagochi.jpg" alt="Masagochi: controles de la masa madre y su curva de fermentación" loading="lazy" width="720" height="450">
+            <div><h3>Masagochi</h3><p>Un simulador para entender cómo <span class="nw">fermenta la masa madre</span></p></div>
+            <a href="https://martinlleral.github.io/masagochi/" target="_blank" rel="noopener">Probalo ↗</a>
+          </article>
+          <article class="pieza">
+            <img src="media/h-ogbon.jpg" alt="Ogbon: un ritmo dibujado como círculos de golpes" loading="lazy" width="720" height="450">
+            <div><h3>Ogbon</h3><p>Ritmos de percusión afrobrasileña dibujados <span class="nw">como círculos que suenan</span></p></div>
+            <a href="https://martinlleral.github.io/ogbon/" target="_blank" rel="noopener">Probalo ↗</a>
+          </article>
+          <article class="pieza">
+            <img class="clara centro" src="media/h-finanzas-v6.jpg" alt="Finanzas: el teclado para anotar un ingreso o un gasto" loading="lazy" width="720" height="450">
+            <div><h3>Finanzas</h3><p>Una app para anotar los gastos de la casa en dos toques. <span class="nw">La demo tiene</span> <span class="nw">datos inventados</span></p></div>
+            <a href="https://martinlleral.github.io/finanzas-v6/" target="_blank" rel="noopener">Probala ↗</a>
+          </article>
+          <article class="pieza">
+            <img src="media/h-lamp-architect.jpg" alt="Lamp Architect: una lámpara de hilo en 3D con sus medidas" loading="lazy" width="720" height="450">
+            <div><h3>Lamp Architect</h3><p>Diseña lámparas de hilo en 3D y calcula <span class="nw">cuántos metros</span> <span class="nw">de hilo llevan</span></p></div>
+            <a href="https://martinlleral.github.io/lamp-architect/" target="_blank" rel="noopener">Probalo ↗</a>
+          </article>
+          <article class="pieza">
+            <img class="centro" src="media/h-observatorio.jpg" alt="Observatorio: los proyectos como estrellas, agrupados en cinco constelaciones" loading="lazy" width="720" height="450">
+            <div><h3>Observatorio</h3><p>Un mapa de todos mis proyectos dibujado como un cielo que <span class="nw">se actualiza cada mes.</span> <span class="nw">Va sin los nombres</span> <span class="nw">porque es personal</span></p></div>
+          </article>
+        </div>
+      </div>
+    </details>
   </section>
 
 
@@ -1203,6 +1232,11 @@ document.documentElement.lang = 'es-AR';
     moverBotones = pedir;
     revisar();
   }
+
+  /* La segunda capa (v10): un link a una sección plegada (el índice, el mapa) la abre antes de llegar */
+  const abrirCapa = h => { const d = h.length > 1 && document.querySelector(`${h}.capa > details`); if (d) d.open = true; };
+  document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if (a) abrirCapa(a.getAttribute('href')); });
+  if (location.hash) abrirCapa(location.hash);
 
   /* Copiar el correo */
   const copiar = document.getElementById('copiar');
